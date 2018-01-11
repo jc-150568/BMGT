@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="book3.SeekPage">
+    <ContentPage.Content>
+        <!-- レイアウトを垂直に表示 -->
+        <StackLayout>
+
+            <!-- 検索するバーを表示-->
+            <SearchBar Placeholder = "Search"/>
+
+            <!-- レイアウトを水平方向に表示 -->
+            <StackLayout Orientation="Horizontal">
+
+                <!-- 日時を指定するプルダウンを表示-->
+                <Picker Title="選択してください" WidthRequest="240"
+                        Margin="20,0,0,0" x:Name="picker1">
+                    <Picker.Items>
+                        <x:String>最新</x:String>
+                        <x:String>日別</x:String>
+                        <x:String>週間</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <!-- 親カテゴリを指定するプルダウンを表示 -->
+                <Picker Title="親カテゴリ" WidthRequest="240" 
+                        SelectedIndexChanged="OnSelectedIndexChanged" x:Name="picker2">
+                    <Picker.Items>
+                        <x:String>小説</x:String>
+                        <x:String>漫画</x:String>
+                        <x:String>雑誌</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <!-- 子カテゴリを指定するプルダウンを表示 -->
+                <Picker Title="子カテゴリ" WidthRequest="240" x:Name="picker3">
+                    <Picker.Items>
+                    </Picker.Items>
+                </Picker>
+
+            </StackLayout>
+
+            <!-- レイアウトを水平方向に表示 -->
+            <StackLayout Orientation="Horizontal">
+
+                <!-- 並べ替え方法を指定するプルダウンを表示 -->
+                <Picker Title="並べ替え" WidthRequest="350" Margin="20,0,20,0" x:Name="picker4">
+                    <Picker.Items>
+                        <x:String>レビューが高い順</x:String>
+                        <x:String>レビューが低い順</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <!-- 持っている本を除外するスイッチを表示 -->
+                <Label Text="持ってる本の除外" Margin="0,0,20,0"/>
+                <Switch/>
+
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
