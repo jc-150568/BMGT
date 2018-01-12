@@ -4,6 +4,14 @@
              xmlns:local="clr-namespace:book3"
              x:Class="book3.MainPage">
 
+    <local:BookPage Title="本棚">
+        <ContentPage.Icon>
+            <OnPlatform x:TypeArguments="FileImageSource"
+                        iOS="bookmark_24.png"
+                        Android="bookmark_24.png"/>
+        </ContentPage.Icon>
+    </local:BookPage>
+    
     <local:CameraPage Title="カメラ">
         <ContentPage.Icon>
             <OnPlatform x:TypeArguments="FileImageSource"
@@ -19,4 +27,12 @@
                         Android="star_32.png"/>
         </ContentPage.Icon>
     </local:SeekPage>
+
+    <local:PropertyPage Title="設定">
+        <ContentPage.Icon>
+            <OnPlatform x:TypeArguments="FileImageSource"
+                        iOS="gear_24.png"
+                        Android="gear_24.png"/>
+        </ContentPage.Icon>
+    </local:PropertyPage>
 </TabbedPage>
