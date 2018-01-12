@@ -6,6 +6,7 @@
         <!-- レイアウトを垂直に表示 -->
         <StackLayout>
 
+            <Label Text=""></Label>
             <!-- 検索するバーを表示-->
             <SearchBar Placeholder = "Search"/>
 
