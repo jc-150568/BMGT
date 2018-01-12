@@ -26,57 +26,57 @@ namespace book3
             {
                 if (items[i].Value <= 0.25)
                 {
-                    items[i].ValueImage = "value_0.gif";
+                    items[i].ValueImage = "value_0.png";
                 }
 
                 else if (items[i].Value <= 0.75)
                 {
-                    items[i].ValueImage = "value_0.5.gif";
+                    items[i].ValueImage = "value_0.5.png";
                 }
 
                 else if (items[i].Value <= 1.25)
                 {
-                    items[i].ValueImage = "value_1.gif";
+                    items[i].ValueImage = "value_1.png";
                 }
 
                 else if (items[i].Value <= 1.75)
                 {
-                    items[i].ValueImage = "value_1.5.gif";
+                    items[i].ValueImage = "value_1.5.png";
                 }
 
                 else if (items[i].Value <= 2.25)
                 {
-                    items[i].ValueImage = "value_2.gif";
+                    items[i].ValueImage = "value_2.png";
                 }
 
                 else if (items[i].Value <= 2.75)
                 {
-                    items[i].ValueImage = "value_2.5.gif";
+                    items[i].ValueImage = "value_2.5.png";
                 }
 
                 else if (items[i].Value <= 3.25)
                 {
-                    items[i].ValueImage = "value_3.gif";
+                    items[i].ValueImage = "value_3.png";
                 }
 
                 else if (items[i].Value <= 3.75)
                 {
-                    items[i].ValueImage = "value_3.5.gif";
+                    items[i].ValueImage = "value_3.5.png";
                 }
 
                 else if (items[i].Value <= 4.25)
                 {
-                    items[i].ValueImage = "value_4.gif";
+                    items[i].ValueImage = "value_4.png";
                 }
 
                 else if (items[i].Value <= 4.75)
                 {
-                    items[i].ValueImage = "value_4.5.gif";
+                    items[i].ValueImage = "value_4.5.png";
                 }
 
                 else
                 {
-                    items[i].ValueImage = "value_5.gif";
+                    items[i].ValueImage = "value_5.png";
                 }
 
 

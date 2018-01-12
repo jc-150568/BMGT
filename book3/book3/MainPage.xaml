@@ -4,35 +4,27 @@
              xmlns:local="clr-namespace:book3"
              x:Class="book3.MainPage">
 
-    <local:BookPage Title="本棚">
-        <ContentPage.Icon>
-            <OnPlatform x:TypeArguments="FileImageSource"
-                        iOS="bookmark_24.png"
-                        Android="bookmark_24.png"/>
-        </ContentPage.Icon>
-    </local:BookPage>
-    
-    <local:CameraPage Title="カメラ">
-        <ContentPage.Icon>
-            <OnPlatform x:TypeArguments="FileImageSource"
-                        iOS="camera_24.png"
-                        Android="camera_24.png"/>
-        </ContentPage.Icon>
-    </local:CameraPage>
+    <NavigationPage Title="本棚" Icon="bookmark_24.png">
+        <x:Arguments>
+            <local:BookPage />
+        </x:Arguments>
+    </NavigationPage>
 
-    <local:SeekPage Title="さがす">
-        <ContentPage.Icon>
-            <OnPlatform x:TypeArguments="FileImageSource"
-                        iOS="star_32.png"
-                        Android="star_32.png"/>
-        </ContentPage.Icon>
-    </local:SeekPage>
+    <NavigationPage Title="カメラ" Icon="camera_24.png">
+        <x:Arguments>
+            <local:CameraPage />
+        </x:Arguments>
+    </NavigationPage>
 
-    <local:PropertyPage Title="設定">
-        <ContentPage.Icon>
-            <OnPlatform x:TypeArguments="FileImageSource"
-                        iOS="gear_24.png"
-                        Android="gear_24.png"/>
-        </ContentPage.Icon>
-    </local:PropertyPage>
+    <NavigationPage Title="さがす" Icon="star_32.png">
+        <x:Arguments>
+            <local:SeekPage />
+        </x:Arguments>
+    </NavigationPage>
+
+    <NavigationPage Title="設定" Icon="gear_24.png">
+        <x:Arguments>
+            <local:PropertyPage />
+        </x:Arguments>
+    </NavigationPage>
 </TabbedPage>

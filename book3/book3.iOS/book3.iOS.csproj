@@ -133,6 +133,21 @@
       <HintPath>..\..\packages\Xamarin.Forms.2.4.0.280\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.iOS" />
+    <Reference Include="ZXing.Net.Mobile.Core, Version=2.3.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ZXing.Net.Mobile.2.3.2\lib\Xamarin.iOS10\ZXing.Net.Mobile.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="ZXing.Net.Mobile.Forms, Version=2.3.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ZXing.Net.Mobile.Forms.2.3.2\lib\Xamarin.iOS10\ZXing.Net.Mobile.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="ZXing.Net.Mobile.Forms.iOS, Version=2.3.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ZXing.Net.Mobile.Forms.2.3.2\lib\Xamarin.iOS10\ZXing.Net.Mobile.Forms.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.portable, Version=2.3.2.0, Culture=neutral, PublicKeyToken=830ae994e36ac27d, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ZXing.Net.Mobile.2.3.2\lib\Xamarin.iOS10\zxing.portable.dll</HintPath>
+    </Reference>
+    <Reference Include="ZXingNetMobile, Version=2.3.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ZXing.Net.Mobile.2.3.2\lib\Xamarin.iOS10\ZXingNetMobile.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\book3\book3.csproj">
@@ -165,37 +180,37 @@
     <BundleResource Include="Resources\star_32.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\value_0.5.gif" />
+    <BundleResource Include="Resources\value_0.5.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\value_0.gif" />
+    <BundleResource Include="Resources\value_0.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\value_1.5.gif" />
+    <BundleResource Include="Resources\value_1.5.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\value_1.gif" />
+    <BundleResource Include="Resources\value_1.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\value_2.5.gif" />
+    <BundleResource Include="Resources\value_2.5.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\value_2.gif" />
+    <BundleResource Include="Resources\value_2.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\value_3.5.gif" />
+    <BundleResource Include="Resources\value_3.5.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\value_3.gif" />
+    <BundleResource Include="Resources\value_3.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\value_4.5.gif" />
+    <BundleResource Include="Resources\value_4.5.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\value_4.gif" />
+    <BundleResource Include="Resources\value_4.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\value_5.gif" />
+    <BundleResource Include="Resources\value_5.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

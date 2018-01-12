@@ -1,8 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="book3.SeekPage">
+             x:Class="book3.SeekPage"
+             Title="探す">
     <ContentPage.Content>
+        
         <!-- レイアウトを垂直に表示 -->
         <StackLayout>
 
@@ -11,7 +13,7 @@
             <SearchBar Placeholder = "Search"/>
 
             <!-- レイアウトを水平方向に表示 -->
-            <StackLayout Orientation="Horizontal">
+            <!--<StackLayout Orientation="Horizontal">-->
 
                 <!-- 日時を指定するプルダウンを表示-->
                 <Picker Title="選択してください" WidthRequest="240"
@@ -39,7 +41,7 @@
                     </Picker.Items>
                 </Picker>
 
-            </StackLayout>
+            <!--</StackLayout>-->
 
             <!-- レイアウトを水平方向に表示 -->
             <StackLayout Orientation="Horizontal">
