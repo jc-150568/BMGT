@@ -17,9 +17,16 @@ namespace book3
             InitializeComponent();
         }
 
-        private void On1(object sender, EventArgs e)
+        private void Onbutton(object sender, EventArgs e)
         {
-            DisplayAlert("おんちぇんじ", "やったー", "くそ");
+            if(sw.On == true)
+            {
+                DisplayAlert("Alert", "オンになった", "OK");
+            }
+            else if (sw.On == false)
+            {
+                DisplayAlert("Alert", "オフになった", "OK");
+            }
         }
     }
 }

@@ -10,7 +10,9 @@
                     <TableRoot>
                         <TableSection>
                             <SwitchCell Text="本棚表示でアイコン表示"
-                                        OnChanged="On1"/>
+                                        OnChanged="Onbutton"
+                                        On="False"
+                                        x:Name="sw"/>
                             <SwitchCell Text="本の連続登録"/>
                         </TableSection>
                     </TableRoot>
