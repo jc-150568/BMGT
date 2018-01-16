@@ -9,6 +9,20 @@ namespace book3
 {
     public partial class App : Application
     {
+        //データベースのパスを格納
+        public static string dbPath;
+        
+        public App(string dbPath)
+        {
+            //AppのdbPathに引数のパスを設定します
+            App.dbPath = dbPath;
+
+
+            InitializeComponent();
+
+            //MainPage = new NavigationPage(new MainPage());
+        }
+
         public App()
         {
             InitializeComponent();

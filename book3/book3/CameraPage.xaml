@@ -6,9 +6,13 @@
     <ContentPage.Content>
         <StackLayout>
             <Button Text="Reader Start!"
-            Clicked="ScanButtonClicked"
-            HorizontalOptions="Center"
-            VerticalOptions="CenterAndExpand" />
+                    Clicked="ScanButtonClicked"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand" />
+            <Button Text="Select!"
+                    Clicked="SelectClicked"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
