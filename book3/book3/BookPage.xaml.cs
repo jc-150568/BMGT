@@ -17,10 +17,25 @@ namespace book3
         {
             InitializeComponent();
 
+            if (BookDB.select_title() != null) //title習得
+            {
+                var query = BookDB.select_title();
+
+                foreach (var book in query)
+                {
+                    string title = book.Title;
+                }
+            }
+            else
+            {
+                DisplayAlert("表がないエラー", "表がないよー", "OK");
+            }
+            string a = BookDB.select_title_count().ToString();
+            int title_count = int.Parse(a);
+
             ObservableCollection<Book> items = new ObservableCollection<Book>();
             items.Add(new Book { Name = "John Doe", Value = 4.0, BlueBook = true, RedStar = true });
-            items.Add(new Book { Name = "Jane Doe", Value = 3.5, BlueBook = true, RedStar = false });
-            items.Add(new Book { Name = "Sammy Doe", Value = 2.5, BlueBook = false, RedStar = false });
+            
 
             for (var i = 0; i < items.Count; i++)
             {

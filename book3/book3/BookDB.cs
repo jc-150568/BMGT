@@ -67,9 +67,8 @@ namespace book3
 
         }
 
-
-        //Bookテーブルの行データを取得します
-        //--------------------------select文的なの--------------------------
+        //-----------------------以下selectメソッド--------------------------
+        //全部表示
         public static List<BookDB> select_all()
         {
             using (SQLiteConnection db = new SQLiteConnection(App.dbPath))
@@ -78,7 +77,47 @@ namespace book3
                 try
                 {
                     //データベースに指定したSQLを発行します
-                    return db.Query<BookDB>("SELECT * FROM [BookDB] order by [Title] desc limit 15");
+                    return db.Query<BookDB>("SELECT * FROM [BookDB] order by [Title] desc limit 30");
+
+                }
+                catch (Exception e)
+                {
+                    System.Diagnostics.Debug.WriteLine(e);
+                    return null;
+                }
+            }
+        }
+
+        //titleのみ表示
+        public static List<BookDB> select_title()
+        {
+            using (SQLiteConnection db = new SQLiteConnection(App.dbPath))
+            {
+
+                try
+                {
+                    //データベースに指定したSQLを発行します
+                    return db.Query<BookDB>("SELECT [Title] FROM [BookDB] order by [Title] desc limit 30");
+
+                }
+                catch (Exception e)
+                {
+                    System.Diagnostics.Debug.WriteLine(e);
+                    return null;
+                }
+            }
+        }
+
+        //titleをcountする
+        public static List<BookDB> select_title_count()
+        {
+            using (SQLiteConnection db = new SQLiteConnection(App.dbPath))
+            {
+
+                try
+                {
+                    //データベースに指定したSQLを発行します
+                    return db.Query<BookDB>("SELECT count([Title]) FROM [BookDB] desc limit 30");
 
                 }
                 catch (Exception e)
