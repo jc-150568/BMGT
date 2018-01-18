@@ -13,11 +13,15 @@ namespace book3
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BookPage : ContentPage
     {
+        public ObservableCollection<Book> items = new ObservableCollection<Book>();
         public BookPage()
         {
             InitializeComponent();
 
-            ObservableCollection<Book> items = new ObservableCollection<Book>();
+            /*
+            string a = "a"; //緊急削除
+            BookDB.deleteBook(a);
+            */
             
             if (BookDB.select_title() != null)
             {
@@ -39,7 +43,6 @@ namespace book3
             {
                 items.Add(new Book { Name = "表示するものがありません" });
             }
-
 
             for (var i = 0; i < items.Count; i++)
             {
@@ -136,6 +139,35 @@ namespace book3
 
         }
 
+        private void BookListView_Refreshing(object sender, EventArgs e)
+        {
+            Task.Delay(2000);
 
+            items.Clear();
+            if (BookDB.select_title() != null)
+            {
+                var query = BookDB.select_title();
+
+                var List1 = new List<String>();
+
+                foreach (var user in query)
+                {
+                    List1.Add(user.Title);
+                }
+                for (var j = 0; j < query.Count; j++)
+                {
+                    items.Add(new Book { Name = List1[j], /*Value = 2.5*/ });
+
+                }
+            }
+            else
+            {
+                items.Add(new Book { Name = "表示するものがありません" });
+            }
+
+            BookListView.ItemsSource = items;
+
+            this.BookListView.IsPullToRefreshEnabled = false;
+        }
     }
 }

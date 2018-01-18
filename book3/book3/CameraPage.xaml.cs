@@ -77,7 +77,7 @@ namespace book3
                 // スキャン停止
                 scanPage.IsScanning = false;
 
-                // PopAsyncで元のページに戻り、結果をダイアログで表示
+                // PopAsyncで元のページに戻り、結果を表示
                 Device.BeginInvokeOnMainThread(async () =>
                 {
                     await Navigation.PopAsync();
@@ -110,9 +110,19 @@ namespace book3
                         JValue isbnValue = (JValue)jobj["isbn"];
                         string isbn = (string)isbnValue.Value;
 
-                        BookDB.insertBook(isbn, title, titleKana, itemCaption);
+                        JValue authorValue = (JValue)jobj["author"];
+                        string author = (string)authorValue.Value;
+
+                        bool x = await DisplayAlert("この内容で登録してよろしいですか？","タイトル:"+title+ "\r\n著者:" + author, "OK","CANCEL");
+                        if (x == true)
+                        {
+                            BookDB.insertBook(isbn, title, titleKana,author, itemCaption);
+                        }
+                        
                     };
 
+
+                    /*
                     var layout2 = new StackLayout { HorizontalOptions = LayoutOptions.CenterAndExpand, VerticalOptions = LayoutOptions.CenterAndExpand };
                     var scroll = new ScrollView { Orientation = ScrollOrientation.Vertical };
                     layout2.Children.Add(scroll);
@@ -138,6 +148,7 @@ namespace book3
                     }
 
                     Content = layout2;
+                    */
                 });
             };
         }

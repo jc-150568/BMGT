@@ -18,10 +18,12 @@ namespace book3
         public string TitleKana { get; set; }
         //ItemCaption列
         public string ItemCaption { get; set; }
+        //author列
+        public string Author { get; set; }
 
 
         //--------------------------insert文的なの--------------------------
-        public static void insertBook(string isbn, string title, string titleKana, string itemCaption)
+        public static void insertBook(string isbn, string title, string titleKana, string itemCaption,string author)
         {
             //データベースに接続する
             using (SQLiteConnection db = new SQLiteConnection(App.dbPath))
@@ -31,7 +33,7 @@ namespace book3
                     //データベースにBookテーブルを作成する
                     db.CreateTable<BookDB>();
                     
-                    db.Insert(new BookDB() { ISBN = isbn, Title = title, TitleKana = titleKana, ItemCaption = itemCaption });
+                    db.Insert(new BookDB() { ISBN = isbn, Title = title, TitleKana = titleKana, ItemCaption = itemCaption, Author = author });
                     db.Commit();
                 }
                 catch (Exception e)
