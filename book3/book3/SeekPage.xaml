@@ -4,62 +4,47 @@
              x:Class="book3.SeekPage"
              Title="探す">
     <ContentPage.Content>
-        
+
         <!-- レイアウトを垂直に表示 -->
         <StackLayout>
 
             <Label Text=""></Label>
             <!-- 検索するバーを表示-->
-            <SearchBar Placeholder = "Search"/>
+            <SearchBar Placeholder = "Search"
+                       PlaceholderColor="Gray"/>
 
-            <!-- レイアウトを水平方向に表示 -->
-            <!--<StackLayout Orientation="Horizontal">-->
-
-                <!-- 日時を指定するプルダウンを表示-->
-                <Picker Title="選択してください" WidthRequest="240"
-                        Margin="20,0,0,0" x:Name="picker1">
-                    <Picker.Items>
-                        <x:String>最新</x:String>
-                        <x:String>日別</x:String>
-                        <x:String>週間</x:String>
-                    </Picker.Items>
-                </Picker>
-
-                <!-- 親カテゴリを指定するプルダウンを表示 -->
-                <Picker Title="親カテゴリ" WidthRequest="240" 
+            <!-- 親カテゴリを指定するプルダウンを表示 -->
+            <Picker Title="親カテゴリ"
+                        WidthRequest="240" 
                         SelectedIndexChanged="OnSelectedIndexChanged" x:Name="picker2">
-                    <Picker.Items>
-                        <x:String>小説</x:String>
-                        <x:String>漫画</x:String>
-                        <x:String>雑誌</x:String>
-                    </Picker.Items>
-                </Picker>
+                <Picker.Items>
 
-                <!-- 子カテゴリを指定するプルダウンを表示 -->
-                <Picker Title="子カテゴリ" WidthRequest="240" x:Name="picker3">
-                    <Picker.Items>
-                    </Picker.Items>
-                </Picker>
+                    <x:String>漫画(コミック)</x:String>
+                    <x:String>語学・学習参考書</x:String>
+                    <x:String>絵本・児童書・図鑑</x:String>
+                    <x:String>小説・エッセイ</x:String>
+                    <x:String>パソコン・システム開発</x:String>
+                    <x:String>ビジネス・経済・就職</x:String>
+                    <x:String>旅行・留学・アウトドア</x:String>
+                    <x:String>人文・思想・社会</x:String>
+                    <x:String>ホビー・スポーツ・美術</x:String>
+                    <x:String>美容・暮らし・健康・管理</x:String>
+                    <x:String>エンタメ・ゲーム</x:String>
+                    <x:String>科学・技術</x:String>
+                    <x:String>写真集・タレント</x:String>
+                    <x:String>資格・検定</x:String>
+                    <x:String>ライトノベル</x:String>
+                    <x:String>ボーイズラブ(BL)</x:String>
+                    <x:String>医学・薬学・看護学・歯科学</x:String>
 
-            <!--</StackLayout>-->
+                </Picker.Items>
+            </Picker>
 
-            <!-- レイアウトを水平方向に表示 -->
-            <StackLayout Orientation="Horizontal">
-
-                <!-- 並べ替え方法を指定するプルダウンを表示 -->
-                <Picker Title="並べ替え" WidthRequest="350" Margin="20,0,20,0" x:Name="picker4">
-                    <Picker.Items>
-                        <x:String>レビューが高い順</x:String>
-                        <x:String>レビューが低い順</x:String>
-                    </Picker.Items>
-                </Picker>
-
-                <!-- 持っている本を除外するスイッチを表示 -->
-                <Label Text="持ってる本の除外" Margin="0,0,20,0"/>
-                <Switch/>
-
-            </StackLayout>
-
+            <!-- 子カテゴリを指定するプルダウンを表示 -->
+            <Picker Title="子カテゴリ" WidthRequest="240" x:Name="picker3">
+                <Picker.Items>
+                </Picker.Items>
+            </Picker>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

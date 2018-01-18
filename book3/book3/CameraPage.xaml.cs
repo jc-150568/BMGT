@@ -15,41 +15,6 @@ using ZXing.Net.Mobile.Forms;
 
 namespace book3
 {
-    /*
-    public partial class CameraPage : ContentPage
-    {
-        public CameraPage()
-        {
-            InitializeComponent();
-        }
-        async void ScanButtonClicked(object sender, EventArgs s)
-        {
-            var scanPage = new ZXingScannerPage()
-            {
-                DefaultOverlayTopText = "バーコードを読み取ります",
-                DefaultOverlayBottomText = "",
-            };
-
-            // スキャナページを表示
-            await Navigation.PushAsync(scanPage);
-
-            scanPage.OnScanResult += (result) =>
-            {
-                // スキャン停止
-                scanPage.IsScanning = false;
-
-                // PopAsyncで元のページに戻り、結果をダイアログで表示
-                Device.BeginInvokeOnMainThread(async () =>
-                {
-                    await Navigation.PopAsync();
-                    await DisplayAlert("スキャン完了", result.Text, "OK");
-                });
-
-                //scanedData.Add(result.Text);
-            };
-        }
-    }
-    */
     public partial class CameraPage : ContentPage
     {
         private string url;
@@ -120,66 +85,8 @@ namespace book3
                         }
                         
                     };
-
-
-                    /*
-                    var layout2 = new StackLayout { HorizontalOptions = LayoutOptions.CenterAndExpand, VerticalOptions = LayoutOptions.CenterAndExpand };
-                    var scroll = new ScrollView { Orientation = ScrollOrientation.Vertical };
-                    layout2.Children.Add(scroll);
-                    var layout = new StackLayout { HorizontalOptions = LayoutOptions.CenterAndExpand, VerticalOptions = LayoutOptions.CenterAndExpand };
-                    scroll.Content = layout;
-
-                    if (BookDB.select_all() != null) //全部表示
-                    {
-                        var query = BookDB.select_all(); //中身はSELECT * FROM [User] limit 15
-
-                        foreach (var book in query)
-                        {
-                            //Userテーブルの名前列をLabelに書き出します
-                            layout.Children.Add(new Label { Text = book.ISBN });
-                            layout.Children.Add(new Label { Text = book.Title });
-                            layout.Children.Add(new Label { Text = book.TitleKana });
-                            layout.Children.Add(new Label { Text = book.ItemCaption });
-                        }
-                    }
-                    else
-                    {
-                        await DisplayAlert("表がないエラー", "表がないよー", "OK");
-                    }
-
-                    Content = layout2;
-                    */
                 });
             };
-        }
-
-        void SelectClicked(object sender, EventArgs s)
-        {
-            var layout2 = new StackLayout { HorizontalOptions = LayoutOptions.CenterAndExpand, VerticalOptions = LayoutOptions.CenterAndExpand };
-            var scroll = new ScrollView { Orientation = ScrollOrientation.Vertical };
-            layout2.Children.Add(scroll);
-            var layout = new StackLayout { HorizontalOptions = LayoutOptions.CenterAndExpand, VerticalOptions = LayoutOptions.CenterAndExpand };
-            scroll.Content = layout;
-
-            if (BookDB.select_all() != null) //全部表示
-            {
-                var query = BookDB.select_all(); //中身はSELECT * FROM [User] limit 15
-
-                foreach (var book in query)
-                {
-                    //Userテーブルの名前列をLabelに書き出します
-                    layout.Children.Add(new Label { Text = book.ISBN.ToString() });
-                    layout.Children.Add(new Label { Text = book.Title });
-                    layout.Children.Add(new Label { Text = book.TitleKana });
-                    layout.Children.Add(new Label { Text = book.ItemCaption });
-                }
-            }
-            else
-            {
-                DisplayAlert("表がないエラー", "表がないよー", "OK");
-            }
-
-            Content = layout;
         }
 
         //HTTPアクセスメソッド

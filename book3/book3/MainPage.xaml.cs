@@ -11,15 +11,9 @@ namespace book3
     {
         public MainPage()
         {
-            try
-            {
-            InitializeComponent();
-            }
-            catch (Exception e)
-            {
 
-                DisplayAlert("error", e.ToString(), "OK");
-            }
+            InitializeComponent();
+            
         }
     }
 }
