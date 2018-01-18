@@ -18,7 +18,7 @@ namespace book3
             InitializeComponent();
 
             ObservableCollection<Book> items = new ObservableCollection<Book>();
-
+            
             if (BookDB.select_title() != null)
             {
                 var query = BookDB.select_title();
@@ -34,6 +34,10 @@ namespace book3
                     items.Add(new Book { Name = List1[j], /*Value = 2.5*/ });
 
                 }
+            }
+            else
+            {
+                items.Add(new Book { Name = "表示するものがありません" });
             }
 
 
