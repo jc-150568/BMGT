@@ -36,7 +36,6 @@ namespace book3
                 }
             }
 
-            
 
             for (var i = 0; i < items.Count; i++)
             {
