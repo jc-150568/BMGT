@@ -17,22 +17,26 @@ namespace book3
         {
             InitializeComponent();
 
-            var query = BookDB.select_title_count();
-
-            var query2 = BookDB.select_title();
-
             ObservableCollection<Book> items = new ObservableCollection<Book>();
-            var List1 = new List<String>();
 
-            foreach (var user in query2)
+            if (BookDB.select_title() != null)
             {
-                List1.Add(user.Title);
-            }
-            for (var j = 0; j < query2.Count; j++)
-            {
-                items.Add(new Book { Name = List1[j], /*Value = 2.5*/ });
+                var query = BookDB.select_title();
+                
+                var List1 = new List<String>();
 
+                foreach (var user in query)
+                {
+                    List1.Add(user.Title);
+                }
+                for (var j = 0; j < query.Count; j++)
+                {
+                    items.Add(new Book { Name = List1[j], /*Value = 2.5*/ });
+
+                }
             }
+
+            
 
             for (var i = 0; i < items.Count; i++)
             {

@@ -20,7 +20,7 @@ namespace book3
             catch (Exception e)
             {
 
-                throw e;
+                DisplayAlert("error", e.ToString(), "OK");
             }
         }
     }

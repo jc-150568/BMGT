@@ -137,7 +137,7 @@ namespace book3
                         await DisplayAlert("表がないエラー", "表がないよー", "OK");
                     }
 
-                    Content = layout;
+                    Content = layout2;
                 });
             };
         }
