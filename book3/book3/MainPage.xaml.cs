@@ -13,8 +13,6 @@ namespace book3
         {
             try
             {
-
-            
             InitializeComponent();
             }
             catch (Exception e)
