@@ -34,7 +34,12 @@
                     <x:String>写真集・タレント</x:String>
                     <x:String>資格・検定</x:String>
                     <x:String>ライトノベル</x:String>
+                    <x:String>楽譜</x:String>
+                    <x:String>文庫</x:String>
+                    <x:String>新書</x:String>
                     <x:String>ボーイズラブ(BL)</x:String>
+                    <x:String>カレンダー・手帳・家計簿</x:String>
+                    <x:String>文具・雑貨</x:String>
                     <x:String>医学・薬学・看護学・歯科学</x:String>
 
                 </Picker.Items>
