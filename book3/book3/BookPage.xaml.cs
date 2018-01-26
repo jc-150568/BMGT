@@ -121,7 +121,7 @@ namespace book3
 
         public class Book
         {
-            public int ISBN { get; set; }
+            public string ISBN { get; set; }
 
             public string Name { get; set; }
 

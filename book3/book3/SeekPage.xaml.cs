@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,10 +15,130 @@ namespace book3
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SeekPage : ContentPage
     {
+        private string url;
+        static string requestUrl;
+
+        public ObservableCollection<Rank> items = new ObservableCollection<Rank>();
+
         public SeekPage()
         {
             InitializeComponent();
+
+            url = "https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&formatVersion=2&applicationId=1051637750796067320&sort=sales&hits=30"; //formatVersion=2にした
+
+            //string genreId = genre.Text;
+            //requestUrl = url + "&booksGenreId=001" + genreId; //URLにISBNコードを挿入
+            requestUrl = url + "&booksGenreId=001";
+
+            //HTTPアクセスメソッドを呼び出す
+            string APIdata = GetApiAsync().ToString(); //jsonをstringで受け取る
+
+            //HTTPアクセス失敗処理(404エラーとか名前解決失敗とかタイムアウトとか)
+            if (APIdata is null)
+            {
+                DisplayAlert("接続エラー", "接続に失敗しました", "OK");
+            }
+
+            //パースする *重要*   パースとは、文法に従って分析する、品詞を記述する、構文解析する、などの意味を持つ英単語。
+            var json = JObject.Parse(APIdata); //stringのAPIdataをJObjectにパース 
+            string a = "a";
+            var Items = JArray.Parse(json["Items"].ToString()); //Itemsは配列なのでJArrayにパース 
+
+            //結果を出力
+            foreach (JObject jobj in Items)
+            {
+                //↓のように取り出す
+                JValue titleValue = (JValue)jobj["title"];
+                string title = (string)titleValue.Value;
+
+                JValue titleKanaValue = (JValue)jobj["titleKana"];
+                string titleKana = (string)titleKanaValue.Value;
+
+                JValue itemCaptionValue = (JValue)jobj["itemCaption"];
+                string itemCaption = (string)itemCaptionValue.Value;
+
+                JValue gazoValue = (JValue)jobj["largeImageUrl"];
+                string gazo = (string)gazoValue.Value;
+
+                items.Add(new Rank { Name = title });
+
+            };
+
+            if (BookDB.select_title() != null)//json
+            {
+                var query = BookDB.select_title();
+
+                var List1 = new List<String>();
+
+                foreach (var user in query)
+                {
+                    List1.Add(user.Title);
+                }
+                for (var j = 0; j < query.Count; j++)
+                {
+                    items.Add(new Rank { Name = List1[j], /*Value = 2.5*/ });
+
+                }
+            }
+            else
+            {
+                items.Add(new Rank { Name = "表示するものがありません" });
+            }
+
         }
+
+
+
+        private void RankListView_Refreshing(object sender, EventArgs e)
+        {
+            Task.Delay(2000);
+
+            
+
+            RankListView.ItemsSource = items;
+
+            this.RankListView.IsPullToRefreshEnabled = false;
+        }
+
+        public class Rank
+        {
+            public string ISBN { get; set; }
+
+            public string Name { get; set; }
+
+            public double Value { get; set; }
+
+            public string ValueImage { get; set; }
+
+            public bool RedStar { get; set; }
+
+            public string RedStar2 { get; set; }
+
+            public bool BlueBook { get; set; }
+
+            public string BlueBook2 { get; set; }
+
+        }
+
+        //HTTPアクセスメソッド
+        public static async Task<string> GetApiAsync()
+        {
+            string APIurl = requestUrl;
+
+            using (HttpClient client = new HttpClient())
+                try
+                {
+                    string urlContents = await client.GetStringAsync(APIurl);
+                    await Task.Delay(1000); //1秒待つ(楽天API規約に違反するため)
+                    return urlContents;
+                }
+                catch (Exception e)
+                {
+                    string a = e.ToString();
+                    return null;
+                }
+        }
+
         // 親カテゴリのプルダウンに応じて子カテゴリの内容を変更する
         private void OnSelectedIndexChanged(object sender, EventArgs eventArgs)
         {
