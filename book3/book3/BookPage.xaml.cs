@@ -139,9 +139,10 @@ namespace book3
 
         }
 
-        private void BookListView_Refreshing(object sender, EventArgs e)
+        private async void BookListView_Refreshing(object sender, EventArgs e)
         {
-            Task.Delay(2000);
+            //処理を待つ
+            await Task.Delay(2000);
 
             items.Clear();
             if (BookDB.select_title() != null)
@@ -167,7 +168,7 @@ namespace book3
 
             BookListView.ItemsSource = items;
 
-            this.BookListView.IsPullToRefreshEnabled = false;
+            this.BookListView.IsRefreshing = false;
         }
     }
 }
