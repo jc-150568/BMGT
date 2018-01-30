@@ -10,20 +10,56 @@ namespace book3
     {
         //プライマリキー
         [PrimaryKey]
-        //ISBN列
+        //ISBN列 主キー
         public string ISBN { get; set; }
-        //Title列
+
+        //タイトル列
         public string Title { get; set; }
-        //TitleKana列
+
+        //タイトルカナ列
         public string TitleKana { get; set; }
-        //ItemCaption列
-        public string ItemCaption { get; set; }
-        //author列
+
+        //サブタイトル列
+        public string SubTitle { get; set; }
+
+        //サブタイトルカナ列
+        public string SubTitleKana { get; set; }
+
+        //著者列
         public string Author { get; set; }
 
+        //著者カナ列
+        public string AuthorKana { get; set; }
+
+        //出版社列
+        public string Publisher { get; set; }
+
+        //種類列(コミック、文庫、etc..)
+        public string Type { get; set; }
+
+        //アイテム説明列
+        public string ItemCaption { get; set; }
+
+        //発売日列
+        public string SalesDate { get; set; }
+
+        //登録日列
+        public DateTime Date { get; set; }
+
+        //金額列
+        public int Price { get; set; }
+
+        //ImageUrl
+        public string largeImageUrl { get; set; }
+
+        //GenreId列
+        public string booksGenreId { get; set; }
+        
 
         //--------------------------insert文的なの--------------------------
-        public static void insertBook(string isbn, string title, string titleKana, string itemCaption,string author)
+        public static void insertBook(string isbn, string title, string titleKana,string subTitle,string subTitleKana,
+            string author, string authorKana,string publisher,string type, string itemCaption,
+            string salesDate, int price, string image,string genreId)
         {
             //データベースに接続する
             using (SQLiteConnection db = new SQLiteConnection(App.dbPath))
@@ -33,7 +69,9 @@ namespace book3
                     //データベースにBookテーブルを作成する
                     db.CreateTable<BookDB>();
                     
-                    db.Insert(new BookDB() { ISBN = isbn, Title = title, TitleKana = titleKana, ItemCaption = itemCaption, Author = author });
+                    db.Insert(new BookDB() { ISBN = isbn, Title = title, TitleKana = titleKana,SubTitle = subTitle,SubTitleKana = subTitleKana, Author = author,AuthorKana = authorKana,
+                        Publisher = publisher,Type = type,ItemCaption = itemCaption,SalesDate = salesDate,Date = DateTime.Now, Price = price, largeImageUrl = image,booksGenreId = genreId });
+
                     db.Commit();
                 }
                 catch (Exception e)
@@ -56,9 +94,31 @@ namespace book3
                 try
                 {
                     db.CreateTable<BookDB>();
-                    db.DropTable<BookDB>(); //dropテーブル
 
-                    //db.Delete(isbn);
+                    db.Delete(isbn);
+                }
+                catch (Exception e)
+                {
+                    db.Rollback();
+                    System.Diagnostics.Debug.WriteLine(e);
+                }
+            }
+
+        }
+
+        //dropTableメソッド
+        public static void dropBook()
+        {
+
+            //データベースに接続
+            using (SQLiteConnection db = new SQLiteConnection(App.dbPath))
+            {
+                //db.BeginTransaction();  //このサイト https://qiita.com/alzybaad/items/9356b5a651603a548278
+                try
+                {
+                    db.CreateTable<BookDB>();
+
+                    db.DropTable<BookDB>();
                 }
                 catch (Exception e)
                 {

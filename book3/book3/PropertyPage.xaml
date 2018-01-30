@@ -19,6 +19,8 @@
                             <!-- ヘルプページに遷移 -->
                             <TextCell Text="ヘルプ" Tapped="Help" />
 
+                            <TextCell Text="本棚全削除" Tapped="bomb" />
+
                         </TableSection>
                     </TableRoot>
                 </TableView.Root>

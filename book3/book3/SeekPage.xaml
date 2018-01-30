@@ -10,8 +10,8 @@
 
             <Label Text=""></Label>
             <!-- 検索するバーを表示-->
-            <SearchBar Placeholder = "Search"
-                       PlaceholderColor="Gray"/>
+            <Entry Text="Serch"
+                   x:Name="serch_var"/>
 
             <!-- 親カテゴリを指定するプルダウンを表示 -->
             <Picker Title="親カテゴリ"
@@ -50,10 +50,14 @@
                 <Picker.Items>
                 </Picker.Items>
             </Picker>
-            
+
+            <Button Text="更新"
+                    Clicked="Serch"
+                    />
+
             <ListView x:Name="RankListView" RowHeight="100"
               IsPullToRefreshEnabled="True"
-              Refreshing="RankListView_Refreshing">
+              Refreshing="OnRefreshing">
                 <ListView.ItemTemplate>
                     <DataTemplate>
 

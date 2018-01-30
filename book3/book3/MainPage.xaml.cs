@@ -13,7 +13,7 @@ namespace book3
         {
 
             InitializeComponent();
-            
+
         }
     }
 }

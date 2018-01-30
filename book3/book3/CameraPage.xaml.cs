@@ -66,22 +66,49 @@ namespace book3
                         JValue titleKanaValue = (JValue)jobj["titleKana"];
                         string titleKana = (string)titleKanaValue.Value;
 
-                        JValue itemCaptionValue = (JValue)jobj["itemCaption"];
-                        string itemCaption = (string)itemCaptionValue.Value;
+                        JValue subTiv = (JValue)jobj["subTitle"];
+                        string subTitle = (string)subTiv.Value;
 
-                        JValue gazoValue = (JValue)jobj["largeImageUrl"];
-                        string gazo = (string)gazoValue.Value;
-
-                        JValue isbnValue = (JValue)jobj["isbn"];
-                        string isbn = (string)isbnValue.Value;
+                        JValue subTiKv = (JValue)jobj["subTitleKana"];
+                        string subTitleKana = (string)subTiKv.Value;
 
                         JValue authorValue = (JValue)jobj["author"];
                         string author = (string)authorValue.Value;
 
+                        JValue authorKanaValue = (JValue)jobj["authorKana"];
+                        string authorKana = (string)authorKanaValue.Value;
+
+                        JValue pubV = (JValue)jobj["publisherName"];
+                        string publisher = (string)pubV.Value;
+
+                        JValue sizeV = (JValue)jobj["size"];
+                        string size = (string)sizeV.Value;
+
+                        JValue isbnValue = (JValue)jobj["isbn"];
+                        string isbn = (string)isbnValue.Value;
+
+                        JValue itemCaptionValue = (JValue)jobj["itemCaption"];
+                        string itemCaption = (string)itemCaptionValue.Value;
+
+                        JValue salesDateV = (JValue)jobj["salesDate"];
+                        string salesDate = (string)salesDateV.Value;
+
+                        JValue priceV = (JValue)jobj["itemPrice"];
+                        var priceVV = priceV.ToString();
+                        int price = int.Parse(priceVV);
+
+                        JValue gazoValue = (JValue)jobj["largeImageUrl"];
+                        string gazo = (string)gazoValue.Value;
+
+                        JValue genreV = (JValue)jobj["booksGenreId"];
+                        string genreId = (string)genreV.Value;
+
+
+
                         bool x = await DisplayAlert("この内容で登録してよろしいですか？","タイトル:"+title+ "\r\n著者:" + author, "OK","CANCEL");
                         if (x == true)
                         {
-                            BookDB.insertBook(isbn, title, titleKana,author, itemCaption);
+                           BookDB.insertBook(isbn, title, titleKana,subTitle,subTitleKana,author,authorKana,publisher,size,itemCaption,salesDate,price,gazo,genreId);
                         }
                         
                     };

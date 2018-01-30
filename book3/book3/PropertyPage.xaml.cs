@@ -29,6 +29,15 @@ namespace book3
         {
             Navigation.PushAsync(new HelpPage());
         }
-        
+        private async Task bomb(object sender, EventArgs e)
+        {
+            bool x = await DisplayAlert("警告", "本棚を全削除します。\n\rよろしいですか？", "OK", "CANCEL");
+            if (x == true)
+            {
+                BookDB.dropBook();
+            }
+        }
+
+
     }
 }
