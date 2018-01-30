@@ -51,9 +51,7 @@
                 </Picker.Items>
             </Picker>
 
-            <Button Text="更新"
-                    Clicked="Serch"
-                    />
+            
 
             <ListView x:Name="RankListView" RowHeight="100"
               IsPullToRefreshEnabled="True"
@@ -118,6 +116,11 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            
+            <Button Text="更新"
+                    Clicked="Serch"
+                    />
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

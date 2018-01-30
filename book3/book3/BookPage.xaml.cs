@@ -139,6 +139,15 @@ namespace book3
 
         }
 
+        private void BookDetail(object sender, ItemTappedEventArgs e)
+        {
+
+            Book book = (Book)BookListView.SelectedItem;
+            string isbn = book.ISBN;
+
+            Navigation.PushAsync(new DetailPage(isbn));
+        }
+
         private async void BookListView_Refreshing(object sender, EventArgs e)
         {
             //処理を待つ

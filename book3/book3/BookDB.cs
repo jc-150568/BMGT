@@ -179,8 +179,27 @@ namespace book3
                 try
                 {
                     //データベースに指定したSQLを発行します
-                    return db.Query<BookDB>("SELECT count([Title]) FROM [BookDB] desc limit 30");
+                    return db.Query<BookDB>("SELECT count([Title]) FROM [BookDB] limit 30");
 
+                }
+                catch (Exception e)
+                {
+                    System.Diagnostics.Debug.WriteLine(e);
+                    return null;
+                }
+            }
+        }
+
+        //isbnで検索
+        public static List<BookDB> select_isbn(string isbn)
+        {
+            using (SQLiteConnection db = new SQLiteConnection(App.dbPath))
+            {
+
+                try
+                {
+                    //データベースに指定したSQLを発行します
+                    return db.Query<BookDB>("SELECT * FROM [BookDB] where [ISBN] ="+isbn);
                 }
                 catch (Exception e)
                 {
