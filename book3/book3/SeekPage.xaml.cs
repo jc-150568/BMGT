@@ -15,7 +15,7 @@ namespace book3
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SeekPage : ContentPage
     {
-        private string url;
+        private string url = "https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&formatVersion=2&applicationId=1051637750796067320&sort=sales&hits=30";
         static string requestUrl;
         static string genreid = "";
         static string genre2 = "";
@@ -26,135 +26,6 @@ namespace book3
         {
 
             InitializeComponent();
-            try
-            {
-                var ListTitle = new List<string>();
-                var ListReview = new List<double>();
-
-                //formatVersion=2にした
-                url = "https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&formatVersion=2&applicationId=1051637750796067320&sort=sales&hits=30";
-
-                requestUrl = url + "&booksGenreId=001" + genreid; //URLにISBNコードを挿入
-
-                //HTTPアクセスメソッドを呼び出す
-                string APIdata = GetApiAsync().ToString(); //jsonをstringで受け取る
-
-                //HTTPアクセス失敗処理(404エラーとか名前解決失敗とかタイムアウトとか)
-                if (APIdata is null)
-                {
-                    DisplayAlert("接続エラー", "接続に失敗しました", "OK");
-                }
-
-                /*
-                //レスポンス(JSON)をstringに変換-------------->しなくていい
-                Stream s = GetMemoryStream(APIdata); //GetMemoryStreamメソッド呼び出し
-                StreamReader sr = new StreamReader(s);
-                string json = sr.ReadToEnd();
-                */
-                /*
-                //デシリアライズ------------------>しなくていい
-                var rakutenBooks = JsonConvert.DeserializeObject<RakutenBooks>(json.ToString());
-                */
-
-                //パースする *重要*   パースとは、文法に従って分析する、品詞を記述する、構文解析する、などの意味を持つ英単語。
-                var json = JObject.Parse(APIdata); //stringのAPIdataをJObjectにパース
-                var Items = JArray.Parse(json["Items"].ToString()); //Itemsは配列なのでJArrayにパース
-
-                //結果を出力
-                foreach (JObject jobj in Items)
-                {
-                    //↓のように取り出す
-                    JValue titleValue = (JValue)jobj["title"];
-                    string title = (string)titleValue.Value;
-
-                    JValue reviewAverageValue = (JValue)jobj["reviewAverage"];
-                    double reviewAverage = (double)reviewAverageValue.Value;
-
-                    JValue itemCaptionValue = (JValue)jobj["itemCaption"];
-                    string itemCaption = (string)itemCaptionValue.Value;
-
-                    JValue gazoValue = (JValue)jobj["largeImageUrl"];
-                    string gazo = (string)gazoValue.Value;
-
-                    ListTitle.Add(title.ToString());
-                    ListReview.Add(reviewAverage);
-
-                };
-
-                for (var j = 0; j < 30; j++)
-                {
-                    items.Add(new Book2 { Name = "きいうおぶお", Value = ListReview[j] });
-                    DisplayAlert("title", ListTitle[j], "ok");
-                }
-
-                /*for (var j = 1; j == query2.Count; j++)
-                {                
-                    foreach (var user in BookDB.countUser(j))
-                    {
-                       items.Add(new Book { Name = user.Name, Value = 2.5 });
-                    }
-                }*/
-
-                /*foreach (var user in query2)
-                {
-                    List1[0] = user.Name;
-                }List1.Add = List1[0];*/
-
-
-
-                for (var i = 0; i < items.Count; i++)
-                {
-                    if (items[i].Value <= 0.25)
-                    {
-                        items[i].ValueImage = "value_0.png";
-                    }
-                    else if (items[i].Value <= 0.75)
-                    {
-                        items[i].ValueImage = "value_0.5.png";
-                    }
-                    else if (items[i].Value <= 1.25)
-                    {
-                        items[i].ValueImage = "value_1.png";
-                    }
-                    else if (items[i].Value <= 1.75)
-                    {
-                        items[i].ValueImage = "value_1.5.png";
-                    }
-                    else if (items[i].Value <= 2.25)
-                    {
-                        items[i].ValueImage = "value_2.png";
-                    }
-                    else if (items[i].Value <= 2.75)
-                    {
-                        items[i].ValueImage = "value_2.5.png";
-                    }
-                    else if (items[i].Value <= 3.25)
-                    {
-                        items[i].ValueImage = "value_3.png";
-                    }
-                    else if (items[i].Value <= 3.75)
-                    {
-                        items[i].ValueImage = "value_3.5.png";
-                    }
-                    else if (items[i].Value <= 4.25)
-                    {
-                        items[i].ValueImage = "value_4.png";
-                    }
-                    else if (items[i].Value <= 4.75)
-                    {
-                        items[i].ValueImage = "value_4.5.png";
-                    }
-                    else
-                    {
-                        items[i].ValueImage = "value_5.png";
-                    }
-
-                }
-
-                RankListView.ItemsSource = items;
-            }
-            catch (Exception e) { /*DisplayAlert("警告", e.ToString(), "OK");*/ }
-
 
         }
 
@@ -738,6 +609,11 @@ namespace book3
 
             //パースする *重要*   パースとは、文法に従って分析する、品詞を記述する、構文解析する、などの意味を持つ英単語。
             var json = JObject.Parse(APIdata); //stringのAPIdataをJObjectにパース
+
+            JValue countV = (JValue)json["hits"];
+            string count = countV.Value.ToString();
+            int getCount = int.Parse(count);
+
             var Items = JArray.Parse(json["Items"].ToString()); //Itemsは配列なのでJArrayにパース
 
             //結果を出力
@@ -765,7 +641,7 @@ namespace book3
 
             };
 
-            for (var j = 0; j < 30; j++)
+            for (var j = 0; j < getCount; j++)
             {
                 items.Add(new Book2 { Name = ListTitle[j], Value = ListReview[j] });
 
