@@ -697,9 +697,137 @@ namespace book3
             this.RankListView.IsRefreshing = false;
         }
 
+        //タイトルを入力して検索
+        private async void Serch_title(object sender, EventArgs e)
+        {
+            string Title = title_bar.Text;
 
 
+            //検索文字列を%EAとかの形に変える
+            string encodedtitle = Uri.EscapeUriString(Title); //Systemアセンブリ中に存在 UTF-8のみ
+            requestUrl = url + "&title=" + encodedtitle;
 
+            //2秒処理を待つ
+            await Task.Delay(2000);
+            items.Clear();
+            var query = BookDB.select_all();
+            var ListTitle = new List<String>();
+            var ListReview = new List<double>();
+
+            requestUrl = requestUrl + "&booksGenreId=001" + genreid;
+
+            //HTTPアクセスメソッドを呼び出す
+            string APIdata = await GetApiAsync(); //jsonをstringで受け取る
+
+            //HTTPアクセス失敗処理(404エラーとか名前解決失敗とかタイムアウトとか)
+            if (APIdata is null)
+            {
+                await DisplayAlert("接続エラー", "接続に失敗しました", "OK");
+            }
+
+            /*
+            //レスポンス(JSON)をstringに変換-------------->しなくていい
+            Stream s = GetMemoryStream(APIdata); //GetMemoryStreamメソッド呼び出し
+            StreamReader sr = new StreamReader(s);
+            string json = sr.ReadToEnd();
+            */
+            /*
+            //デシリアライズ------------------>しなくていい
+            var rakutenBooks = JsonConvert.DeserializeObject<RakutenBooks>(json.ToString());
+            */
+
+            //パースする *重要*   パースとは、文法に従って分析する、品詞を記述する、構文解析する、などの意味を持つ英単語。
+            var json = JObject.Parse(APIdata); //stringのAPIdataをJObjectにパース
+            var Items = JArray.Parse(json["Items"].ToString()); //Itemsは配列なのでJArrayにパース
+
+            //結果を出力
+            foreach (JObject jobj in Items)
+            {
+                //↓のように取り出す
+                JValue titleValue = (JValue)jobj["title"];
+                string title = (string)titleValue.Value;
+
+                JValue reviewAverageValue = (JValue)jobj["reviewAverage"];
+                string reviewAverage = (string)reviewAverageValue.Value;
+                double Review = double.Parse(reviewAverage);
+
+                JValue titleKanaValue = (JValue)jobj["titleKana"];
+                string titleKana = (string)titleKanaValue.Value;
+
+                JValue itemCaptionValue = (JValue)jobj["itemCaption"];
+                string itemCaption = (string)itemCaptionValue.Value;
+
+                JValue gazoValue = (JValue)jobj["largeImageUrl"];
+                string gazo = (string)gazoValue.Value;
+
+                ListTitle.Add(title);
+                ListReview.Add(Review);
+
+            };
+
+            for (var j = 0; j < 30; j++)
+            {
+                items.Add(new Book2 { Name = ListTitle[j], Value = ListReview[j] });
+
+            }
+            for (var i = 0; i < items.Count; i++)
+            {
+                if (items[i].Value <= 0.25)
+                {
+                    items[i].ValueImage = "value_0.png";
+                }
+                else if (items[i].Value <= 0.75)
+                {
+                    items[i].ValueImage = "value_0.5.png";
+                }
+                else if (items[i].Value <= 1.25)
+                {
+                    items[i].ValueImage = "value_1.png";
+                }
+                else if (items[i].Value <= 1.75)
+                {
+                    items[i].ValueImage = "value_1.5.png";
+                }
+                else if (items[i].Value <= 2.25)
+                {
+                    items[i].ValueImage = "value_2.png";
+                }
+                else if (items[i].Value <= 2.75)
+                {
+                    items[i].ValueImage = "value_2.5.png";
+                }
+                else if (items[i].Value <= 3.25)
+                {
+                    items[i].ValueImage = "value_3.png";
+                }
+                else if (items[i].Value <= 3.75)
+                {
+                    items[i].ValueImage = "value_3.5.png";
+                }
+                else if (items[i].Value <= 4.25)
+                {
+                    items[i].ValueImage = "value_4.png";
+                }
+                else if (items[i].Value <= 4.75)
+                {
+                    items[i].ValueImage = "value_4.5.png";
+                }
+                else
+                {
+                    items[i].ValueImage = "value_5.png";
+                }
+
+            }
+
+
+            RankListView.ItemsSource = items;
+
+
+            //リフレッシュを止める
+            this.RankListView.IsRefreshing = false;
+        }
+
+        //引っ張って更新メソッド
         private async void OnRefreshing(object sender, EventArgs e)
         {
             //2秒処理を待つ

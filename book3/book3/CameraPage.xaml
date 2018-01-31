@@ -5,10 +5,24 @@
              Title="カメラ">
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="Reader Start!"
+            <Entry Placeholder="ISBNを入力してください。"
+                   PlaceholderColor="Gray"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Center"
+                   Margin="30"
+                   x:Name="serch_isbn"/>
+
+            <Button Text="Serch!"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="Center"
+                    x:Name="serch"
+                    Clicked="SerchClicked"/>
+
+            <Button Image="UPCA_JPN.png"
                     Clicked="ScanButtonClicked"
                     HorizontalOptions="Center"
                     VerticalOptions="CenterAndExpand" />
         </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>

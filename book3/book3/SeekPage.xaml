@@ -10,8 +10,11 @@
 
             <Label Text=""></Label>
             <!-- 検索するバーを表示-->
-            <Entry Text="Serch"
-                   x:Name="serch_var"/>
+            <SearchBar Placeholder="タイトルを入力して下さい"
+                       PlaceholderColor="Gray"
+                       SearchButtonPressed="Serch_title"
+                       x:Name="title_bar"
+                />
 
             <!-- 親カテゴリを指定するプルダウンを表示 -->
             <Picker Title="親カテゴリ"
