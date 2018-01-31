@@ -18,10 +18,19 @@
                     x:Name="serch"
                     Clicked="SerchClicked"/>
 
-            <Button Image="UPCA_JPN.png"
+            <!--Image="UPCA_JPN.png" 直す用-->
+            <Button 
                     Clicked="ScanButtonClicked"
                     HorizontalOptions="Center"
-                    VerticalOptions="CenterAndExpand" />
+                    VerticalOptions="CenterAndExpand">
+
+                <Button.Image>
+                    <OnPlatform x:TypeArguments="FileImageSource"
+                                iOS="UPCA_JPN.png"
+                                Android="UPCA_JPN2.png"/>
+                </Button.Image>
+            </Button>
+                
         </StackLayout>
         
     </ContentPage.Content>

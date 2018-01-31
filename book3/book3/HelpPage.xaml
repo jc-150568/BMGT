@@ -3,11 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="book3.HelpPage"
              Title="ヘルプ">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="へるぷするよー"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+
+    <WebView Source="https://www.youtube.com/watch?v=-YU326r7hJ0" />
+    
 </ContentPage>
