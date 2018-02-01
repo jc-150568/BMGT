@@ -48,7 +48,7 @@
 	<string>LaunchScreen</string>
 	<key>NSCameraUsageDescription</key>
 	<string>カメラを利用してスキャンします。</string>
-	<key>MinimumOSVersion</key>
+  <key>MinimumOSVersion</key>
 	<string>10.0</string>
 </dict>
 </plist>

@@ -5,20 +5,6 @@
              Title="カメラ">
     <ContentPage.Content>
         <StackLayout>
-            <Entry Placeholder="ISBNを入力してください。"
-                   PlaceholderColor="Gray"
-                   HorizontalOptions="CenterAndExpand"
-                   VerticalOptions="Center"
-                   Margin="30"
-                   x:Name="serch_isbn"/>
-
-            <Button Text="Serch!"
-                    HorizontalOptions="CenterAndExpand"
-                    VerticalOptions="Center"
-                    x:Name="serch"
-                    Clicked="SerchClicked"/>
-
-            <!--Image="UPCA_JPN.png" 直す用-->
             <Button 
                     Clicked="ScanButtonClicked"
                     HorizontalOptions="Center"
@@ -30,7 +16,16 @@
                                 Android="UPCA_JPN2.png"/>
                 </Button.Image>
             </Button>
-                
+
+            <SearchBar Placeholder="ISBNを直接入力して検索"
+                   PlaceholderColor="Gray"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Center"
+                   Margin="30"
+                   SearchButtonPressed="SerchClicked"
+                   x:Name="serch_isbn"/>
+
+
         </StackLayout>
         
     </ContentPage.Content>
