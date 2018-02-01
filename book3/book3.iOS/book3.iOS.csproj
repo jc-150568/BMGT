@@ -242,6 +242,12 @@
     <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Contents.json">
       <InProject>false</InProject>
     </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\iTunesArtwork@1x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\playstore-icon.png">
+      <InProject>false</InProject>
+    </ImageAsset>
     <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\Contents.json">
       <InProject>false</InProject>
     </ImageAsset>

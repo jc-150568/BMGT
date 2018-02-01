@@ -73,12 +73,14 @@
     {
       "scale": "1x",
       "size": "76x76",
-      "idiom": "ipad"
+      "idiom": "ipad",
+      "filename": "iTunesArtwork@1x.png"
     },
     {
       "scale": "2x",
       "size": "76x76",
-      "idiom": "ipad"
+      "idiom": "ipad",
+      "filename": "playstore-icon.png"
     },
     {
       "scale": "2x",
