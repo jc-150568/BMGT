@@ -139,6 +139,7 @@ namespace book3
 
         }
 
+        //リストタップ処理
         private void BookDetail(object sender, ItemTappedEventArgs e)
         {
 

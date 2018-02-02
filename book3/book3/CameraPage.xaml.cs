@@ -45,7 +45,7 @@ namespace book3
                 // PopAsyncで元のページに戻り、結果を表示
                 Device.BeginInvokeOnMainThread(async () =>
                 {
-                    await Navigation.PopAsync();
+                    await Navigation.PopAsync();//元のページに戻る
                     string isbncode = result.Text;
                     requestUrl = url + "&isbn=" + isbncode; //URLにISBNコードを挿入
 
