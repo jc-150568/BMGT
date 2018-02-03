@@ -20,7 +20,7 @@ namespace book3
 
             InitializeComponent();
 
-            //MainPage = new NavigationPage(new MainPage());
+            MainPage = new book3.MainPage();
         }
 
         public App()
