@@ -17,9 +17,10 @@
                 </Button.Image>
             </Button>
 
-            <SearchBar Placeholder="ISBNを直接入力して検索"
+            <SearchBar Placeholder="ISBNを入力して検索"
                    PlaceholderColor="Gray"
                    SearchButtonPressed="SerchClicked"
+                   Margin="50"
                    x:Name="serch_isbn"/>
 
 
