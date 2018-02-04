@@ -3,69 +3,99 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="book3.BookPage"
              Title="本棚">
-    
-    <ListView x:Name="BookListView" RowHeight="100"
-              IsPullToRefreshEnabled="True"
-              Refreshing="BookListView_Refreshing"
-              ItemTapped="BookDetail">
-        <ListView.ItemTemplate>
-            <DataTemplate>
+    <ContentPage.Content>
+        <StackLayout>
+            <!-- 検索するバーを表示-->
+            <SearchBar Placeholder = "Search"
+                       PlaceholderColor="Gray"
+                       x:Name="sBar"
+                       SearchButtonPressed="Search_title"/>
 
-                <!-- セルをカスタマイズ-->
-                <ViewCell>
 
-                    <!-- レイアウトを水平方向に表示-->
-                    <StackLayout Orientation="Horizontal">
+            <!-- 親カテゴリを指定するプルダウンを表示 -->
+            <Picker Title="ソート"
+                        WidthRequest="240" 
+                        SelectedIndexChanged="picker_SelectedIndexChanged"
+                        x:Name="picker">
+                <Picker.Items>
 
-                        <!-- セルを格子状にする-->
-                        <Grid>
+                    <x:String>五十音：昇順</x:String>
+                    <x:String>五十音：降順</x:String>
+                    <x:String>著者名：昇順</x:String>
+                    <x:String>著者名：降順</x:String>
+                    <x:String>発売日：昇順</x:String>
+                    <x:String>発売日：降順</x:String>
+                    <x:String>登録日：昇順</x:String>
+                    <x:String>登録日：降順</x:String>
+                </Picker.Items>
+            </Picker>
 
-                            <!-- 3行にして高さを設定 -->
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="33" />
-                                <RowDefinition Height="34" />
-                                <RowDefinition Height="33" />
-                            </Grid.RowDefinitions>
+            <Button Text="ソートする"
+                    Clicked="OnSortButtonClicked"/>
 
-                            <!-- 2列にして幅を設定 -->
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="20" />
-                                <ColumnDefinition Width="150" />
-                            </Grid.ColumnDefinitions>
-                            <Label Text= "{Binding Name}" FontSize="15" Grid.Row="1" Grid.Column="1"/>
-                        </Grid>
+            <ListView x:Name="BookListView" RowHeight="100"
+                   IsPullToRefreshEnabled="True"
+                   Refreshing="OnRefreshing" 
+                  ItemTapped="OnItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
 
-                        <!-- セルを格子状にする-->
-                        <Grid>
+                        <!-- セルをカスタマイズ-->
+                        <ViewCell>
 
-                            <!-- 4行にして高さを設定 -->
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="25" />
-                                <RowDefinition Height="25" />
-                                <RowDefinition Height="25" />
-                                <RowDefinition Height="25" />
-                            </Grid.RowDefinitions>
+                            <!-- レイアウトを水平方向に表示-->
+                            <StackLayout Orientation="Horizontal">
 
-                            <!-- 4行にして幅を設定 -->
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="100"/>
-                                <ColumnDefinition Width="100"/>
-                                <ColumnDefinition Width="150" />
-                                <ColumnDefinition Width="150" />
-                            </Grid.ColumnDefinitions>
+                                <!-- セルを格子状にする-->
+                                <Grid>
 
-                            <!--お気に入りボタンを表示 -->
-                            <Image Source="{Binding RedStar2}" Grid.Row="1" Grid.Column="2"/>
-                            <!-- 読みたいボタンを表示 -->
-                            <Image Source="{Binding BlueBook2}" Grid.Row="2" Grid.Column="2"/>
-                            <!-- 本の評価を表示-->
-                            <Label Text="{Binding Value}" FontSize="15" HorizontalOptions="Center"  Grid.Row="1" Grid.Column="3"/>
-                            <Image Source="{Binding ValueImage}" Grid.Row="2" Grid.Column="3"/>
+                                    <!-- 3行にして高さを設定 -->
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="33" />
+                                        <RowDefinition Height="34" />
+                                        <RowDefinition Height="33" />
+                                    </Grid.RowDefinitions>
 
-                        </Grid>
-                    </StackLayout>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+                                    <!-- 2列にして幅を設定 -->
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="20" />
+                                        <ColumnDefinition Width="250" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text= "{Binding Name}" FontSize="15" Grid.Row="1" Grid.Column="1"/>
+                                </Grid>
+
+                                <!-- セルを格子状にする-->
+                                <Grid>
+
+                                    <!-- 4行にして高さを設定 -->
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="25" />
+                                        <RowDefinition Height="25" />
+                                        <RowDefinition Height="25" />
+                                        <RowDefinition Height="25" />
+                                    </Grid.RowDefinitions>
+
+                                    <!-- 4行にして幅を設定 -->
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="150" />
+                                        <ColumnDefinition Width="150" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <!--お気に入りボタンを表示 -->
+                                    <Image Source="{Binding RedStar2}" Grid.Row="1" Grid.Column="1"/>
+                                    <!-- 読みたいボタンを表示 -->
+                                    <Image Source="{Binding BlueBook2}" Grid.Row="2" Grid.Column="1"/>
+                                    <!-- 本の評価を表示-->
+                                    <!--<Label Text="{Binding Value}" FontSize="15" HorizontalOptions="Center"  Grid.Row="1" Grid.Column="3"/>
+                                <Image Source="{Binding ValueImage}" Grid.Row="2" Grid.Column="3"/>-->
+
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>

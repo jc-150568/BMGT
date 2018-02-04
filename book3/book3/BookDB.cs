@@ -54,7 +54,16 @@ namespace book3
 
         //GenreId列
         public string booksGenreId { get; set; }
-        
+
+        //既読列
+        public int Read { get; set; }
+
+        //お気に入り列
+        public int RedStar { get; set; }
+
+        //読みたい列
+        public int BlueBook { get; set; }
+
 
         //--------------------------insert文的なの--------------------------
         public static void insertBook(string isbn, string title, string titleKana,string subTitle,string subTitleKana,
@@ -208,5 +217,58 @@ namespace book3
                 }
             }
         }
+
+        public static List<BookDB> sortselectBook(string terms, int sortkey)
+        {
+            using (SQLiteConnection db = new SQLiteConnection(App.dbPath))
+            {
+
+                try
+                {
+                    //データベースに指定したSQLを発行します
+                    //return db.Query<BookDB>("SELECT * FROM [Book] order by [_id] desc limit 15");
+                    if (sortkey == 1)
+                    {
+                        return db.Query<BookDB>("SELECT * FROM [Book] order by " + terms);
+                    }
+                    else if (sortkey == 2)
+                    {
+                        return db.Query<BookDB>("SELECT * FROM [Book] order by " + terms + " desc");
+                    }
+                    else
+                    {
+                        return db.Query<BookDB>("SELECT * FROM [Book]");
+                    }
+                }
+                catch (Exception e)
+                {
+
+                    System.Diagnostics.Debug.WriteLine(e);
+                    return null;
+                }
+            }
+        }
+
+        public static List<BookDB> selectBook_search(string keyword)
+        {
+            using (SQLiteConnection db = new SQLiteConnection(App.dbPath))
+            {
+
+                try
+                {
+                    //データベースに指定したSQLを発行します
+                    //return db.Query<UserModel>("SELECT * FROM [Book] order by [_id] desc limit 15");
+                    return db.Query<BookDB>("SELECT * FROM [Book] WHERE Title LIKE '%" + keyword + "%'");
+
+                }
+                catch (Exception e)
+                {
+
+                    System.Diagnostics.Debug.WriteLine(e);
+                    return null;
+                }
+            }
+        }
+
     }
 }
