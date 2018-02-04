@@ -15,6 +15,14 @@ namespace book3
         public HelpPage()
         {
             InitializeComponent();
+
+            var webView = new WebView
+            { 
+                Source = "http://bmgt-help.hatenadiary.com/entry/2018/02/01/222019"
+            };
+            Padding = new Thickness(0, Device.OnPlatform(20, 0, 0), 0, 0);
+            Content = webView;
         }
+        
     }
 }

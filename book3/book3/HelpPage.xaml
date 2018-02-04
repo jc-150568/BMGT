@@ -4,6 +4,6 @@
              x:Class="book3.HelpPage"
              Title="ヘルプ">
 
-    <WebView Source="http://bmgt-help.hatenadiary.com/entry/2018/02/01/222019" />
+    
     
 </ContentPage>

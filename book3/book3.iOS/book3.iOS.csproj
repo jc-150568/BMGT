@@ -245,6 +245,9 @@
     <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\iTunesArtwork@1x.png">
       <InProject>false</InProject>
     </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\iTunesArtwork@2x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
     <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\playstore-icon - コピー (2).png">
       <InProject>false</InProject>
     </ImageAsset>
