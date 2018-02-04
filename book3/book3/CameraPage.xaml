@@ -19,9 +19,6 @@
 
             <SearchBar Placeholder="ISBNを直接入力して検索"
                    PlaceholderColor="Gray"
-                   HorizontalOptions="CenterAndExpand"
-                   VerticalOptions="Center"
-                   Margin="30"
                    SearchButtonPressed="SerchClicked"
                    x:Name="serch_isbn"/>
 
