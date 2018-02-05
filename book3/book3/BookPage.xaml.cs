@@ -99,16 +99,23 @@ namespace book3
             public string BlueBook2 { get; set; }
 
         }
-        private void OnItemSelected(object sender, EventArgs e)
+        
+        private void OnItemSelected(object sender, ItemTappedEventArgs e)
         {
 
+            string _device = Device.Idiom.ToString();
+
             Book book = (Book)BookListView.SelectedItem;
-            string x = book.ISBN;
-            Navigation.PushAsync(new DetailPage(x));
-            /*string x = new BookPage().BookListView.ItemsSource.ToString();
-            var layout = new StackLayout { HorizontalOptions = LayoutOptions.Center, Margin = new Thickness { Top = 100 } };
-            layout.Children.Add(new Label { Text = x });
-             Content = layout;*/
+            string isbn = book.ISBN;
+
+            if (_device == "Phone")
+            {
+                Navigation.PushAsync(new AndroidDetailPage(isbn));
+            }
+            else
+            {
+                Navigation.PushAsync(new DetailPage(isbn));
+            }
         }
 
         /// <summary>

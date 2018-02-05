@@ -81,7 +81,7 @@ namespace book3
         // ボタンとスイッチの判定
         string Isbn;
         string title;
-        DateTime Date;
+        string Date;
         string type;
         string itemcaption;
         string author;
@@ -109,7 +109,7 @@ namespace book3
                     redstar = book.RedStar;
                     read = book.Read;
                     author = book.Author;
-                    Date = book.Date;
+                    Date = book.SalesDate;
                     type = book.Type;
                     publisher = book.Publisher;
                     itemcaption = book.ItemCaption;

@@ -261,6 +261,18 @@
       <InProject>false</InProject>
     </ImageAsset>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\gray_star_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\red_star_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\blue_book_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\gray_book_24.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
