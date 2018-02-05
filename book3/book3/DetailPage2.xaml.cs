@@ -29,6 +29,7 @@ namespace book3
         public DetailPage2(string isbn)
         {
             InitializeComponent();
+            
             //var query = BookDB.selectUserISBN(this.Isbn);
 
             Isbn = isbn;
@@ -59,25 +60,6 @@ namespace book3
             Publisher2.Text = "出版社:" + publisher;
             ItemCaption2.Text = "説明:" + itemcaption;
 
-            if (bluebook == 1)
-            {
-                this.image1.Image = "blue_book_24.png";
-            }
-
-            else
-            {
-                this.image1.Image = "gray_book_24.png";
-            }
-
-            if (redstar == 1)
-            {
-                this.image2.Image = "red_star_24.png";
-            }
-
-            else
-            {
-                this.image2.Image = "gray_star_24.png";
-            }
 
             if (read == 0)
             {
@@ -92,7 +74,7 @@ namespace book3
             }
         }
 
-
+        
         // 読みたいボタンを点滅させる
         private void OnImageClicked1(object sender, EventArgs e)
         {
@@ -110,7 +92,7 @@ namespace book3
                 bluebook = 1;
             }
         }
-
+        
         // お気にいりボタンを点滅させる
         private void OnImageClicked2(object sender, EventArgs e)
         {
@@ -128,7 +110,7 @@ namespace book3
                 redstar = 1;
             }
         }
-
+        
         // ラベルを未読⇔既読にする
         private void OnToggled(object sender, ToggledEventArgs e)
         {
@@ -153,5 +135,7 @@ namespace book3
                 Navigation.PushAsync(new BookPage());
             }
         }
+        
+        
     }
 }

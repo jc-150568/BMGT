@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -107,15 +108,18 @@ namespace book3
 
             Book book = (Book)BookListView.SelectedItem;
             string isbn = book.ISBN;
-
+            /*
             if (_device == "Phone")
             {
-                Navigation.PushAsync(new AndroidDetailPage(isbn));
+                Navigation.PushAsync(new DetailPage2(isbn));
             }
             else
             {
                 Navigation.PushAsync(new DetailPage(isbn));
             }
+            */
+            Navigation.PushAsync(new DetailPage2(isbn));
+
         }
 
         /// <summary>

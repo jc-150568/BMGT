@@ -49,7 +49,6 @@
 
         <!-- レイアウトを垂直方向に表示 -->
         <StackLayout>
-            
 
             <!-- 本のタイトルを表示 -->
             <Label Text= "title" Margin="30" FontSize="30" x:Name="title2"/>
@@ -57,84 +56,48 @@
             <!-- 横線を表示 -->
             <BoxView Color="Gray" WidthRequest="1000" HeightRequest="1" />
 
-            <OnPlatform x:TypeArguments="View">
-                <OnPlatform.Android>
-                    <Grid>
+            <Grid>
 
-                        <!-- 6行にして高さを設定 -->
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="18" />
-                            <RowDefinition Height="18" />
-                            <RowDefinition Height="18" />
-                            <RowDefinition Height="18" />
-                            <RowDefinition Height="18" />
-                            <RowDefinition Height="45" />
+                <!-- 6行にして高さを設定 -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="90" />
+                    <RowDefinition Height="36" />
+                    <RowDefinition Height="36" />
+                    <RowDefinition Height="36" />
+                    <RowDefinition Height="36" />
+                    <RowDefinition Height="36" />
+                    <RowDefinition Height="90" />
 
-                        </Grid.RowDefinitions>
+                </Grid.RowDefinitions>
 
-                        <!-- 6列にして幅を設定 -->
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="72" />
-                            <ColumnDefinition Width="180" />
-                            <ColumnDefinition Width="50" />
-                            <ColumnDefinition Width="50" />
-                            <ColumnDefinition Width="50" />
-                            <ColumnDefinition Width="360" />
-                        </Grid.ColumnDefinitions>
+                <!-- 6列にして幅を設定 -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="72" />
+                    <ColumnDefinition Width="180" />
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="360" />
+                </Grid.ColumnDefinitions>
 
+                <!-- 本の画像を表示 -->
+                <BoxView Color="Blue" WidthRequest="130" HeightRequest="180" Grid.Row="1" Grid.Column="1" Grid.RowSpan="5"/>
 
-                    </Grid>
-                </OnPlatform.Android>
-                
-                <OnPlatform.iOS>
-                    <Grid>
+                <!-- 読みたいボタンを表示 -->
+                <Button x:Name="image1" Image="{Binding BookImage}" Clicked="OnImageClicked1" Grid.Row="1" Grid.Column="2" />
 
-                        <!-- 6行にして高さを設定 -->
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="18" />
-                            <RowDefinition Height="18" />
-                            <RowDefinition Height="18" />
-                            <RowDefinition Height="18" />
-                            <RowDefinition Height="18" />
-                            <RowDefinition Height="45" />
+                <!-- お気に入りボタンを表示 -->
+                <Button x:Name="image2" Image="{Binding StarImage}" Clicked="OnImageClicked2" Grid.Row="2" Grid.Column="2" />
 
-                        </Grid.RowDefinitions>
+                <!-- 未読・既読スイッチを表示 -->
+                <Switch x:Name="unread1" Toggled="OnToggled" Grid.Row="3" Grid.Column="4"/>
+                <Label x:Name="unread2" Text="未読" FontSize="24" Grid.Row="4" Grid.Column="4" Margin="5,0,0,0"/>
 
-                        <!-- 6列にして幅を設定 -->
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="72" />
-                            <ColumnDefinition Width="180" />
-                            <ColumnDefinition Width="50" />
-                            <ColumnDefinition Width="50" />
-                            <ColumnDefinition Width="50" />
-                            <ColumnDefinition Width="360" />
-                        </Grid.ColumnDefinitions>
-
-                        <!-- 本の画像を表示 -->
-                        <BoxView Color="Blue" WidthRequest="130" HeightRequest="180" Grid.Row="1" Grid.Column="1" Grid.RowSpan="5"/>
-
-                        <!-- 読みたいボタンを表示 -->
-                        <Button x:Name="image1" Image="{Binding BookImage}" Clicked="OnImageClicked1" Grid.Row="1" Grid.Column="2" />
-
-                        <!-- お気に入りボタンを表示 -->
-                        <Button x:Name="image2" Image="{Binding StarImage}" Clicked="OnImageClicked2" Grid.Row="2" Grid.Column="2" />
-
-                        <!-- 未読・既読スイッチを表示 -->
-                        <Switch x:Name="unread1" Toggled="OnToggled" Grid.Row="3" Grid.Column="4"/>
-                        <Label x:Name="unread2" Text="未読" FontSize="24" Grid.Row="4" Grid.Column="4" Margin="3,0,0,0"/>
-
-                    </Grid>
-                </OnPlatform.iOS>
-            </OnPlatform>
-
-            
-            
-           
+            </Grid>
 
             <!-- 横線を表示 -->
             <BoxView Color="Black" WidthRequest="1000" HeightRequest="1" />
 
-            <ScrollView x:Name="ScrollView1" >
             <!-- 本のデータ -->
             <Label Text="著者名" Margin="30,15" FontSize="20" x:Name="Auther2" />
             <Label Text="タイプ" Margin="30,15" FontSize="20" x:Name="Type2"/>
@@ -142,8 +105,6 @@
             <Label Text="出版社" Margin="30,15" FontSize="20" x:Name="Publisher2"/>
             <Label Text="説明" Margin="30,15" FontSize="20" x:Name="ItemCaption2"/>
             <Button Text="削除する" Margin="30,15" FontSize="20" Clicked="OnDeleteButtonClicked"/>
-
-            </ScrollView>
 
         </StackLayout>
 
