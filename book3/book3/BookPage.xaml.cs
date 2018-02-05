@@ -108,17 +108,15 @@ namespace book3
 
             Book book = (Book)BookListView.SelectedItem;
             string isbn = book.ISBN;
-            /*
+            
             if (_device == "Phone")
             {
-                Navigation.PushAsync(new DetailPage2(isbn));
+                Navigation.PushAsync(new AndroidDetailPage(isbn));
             }
             else
             {
                 Navigation.PushAsync(new DetailPage(isbn));
             }
-            */
-            Navigation.PushAsync(new DetailPage2(isbn));
 
         }
 

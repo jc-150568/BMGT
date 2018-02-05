@@ -19,6 +19,7 @@ namespace book3
     {
         private string url;
         static string requestUrl;
+        private int c_bool;
 
         public CameraPage()
         {
@@ -34,6 +35,8 @@ namespace book3
                 DefaultOverlayBottomText = "",
             };
 
+            
+
             // スキャナページを表示
             await Navigation.PushAsync(scanPage);
 
@@ -45,7 +48,28 @@ namespace book3
                 // PopAsyncで元のページに戻り、結果を表示
                 Device.BeginInvokeOnMainThread(async () =>
                 {
-                    await Navigation.PopAsync();//元のページに戻る
+                    List<Manage> hoge2;
+                    hoge2 = Manage._camera();
+                    if (hoge2 == null)
+                    {
+                        Manage.insertCamera();
+                        hoge2 = Manage._camera();
+                    }
+                    foreach (var x in hoge2)
+                    {
+                        c_bool = x.camera_bool;
+                    }
+
+                    if (c_bool == 0) 
+                    {
+                        DependencyService.Get<IDeviceService>().PlayVibrate();
+                        await Navigation.PopAsync();//元のページに戻る
+                    }
+                    if (c_bool == 1)
+                    {
+                        DependencyService.Get<IDeviceService>().PlayVibrate();
+                    }
+
                     string isbncode = result.Text;
                     requestUrl = url + "&isbn=" + isbncode; //URLにISBNコードを挿入
 
@@ -110,7 +134,6 @@ namespace book3
                         {
                             BookDB.insertBook(isbn, title, titleKana, subTitle, subTitleKana, author, authorKana, publisher, size, itemCaption, salesDate, price, gazo, genreId);
                         }
-
                     };
                 });
             };

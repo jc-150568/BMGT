@@ -13,7 +13,10 @@
                                         OnChanged="Onbutton"
                                         On="False"
                                         x:Name="sw"/>
-                            <SwitchCell Text="本の連続登録"/>
+                            <SwitchCell Text="本の連続登録"
+                                        On="False"
+                                        x:Name="sw2"
+                                        OnChanged="Onbutton2"/>
                         </TableSection>
                     </TableRoot>
                 </TableView.Root>

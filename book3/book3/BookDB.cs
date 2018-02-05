@@ -104,7 +104,7 @@ namespace book3
                 {
                     db.CreateTable<BookDB>();
 
-                    db.Delete(isbn);
+                    db.Delete<BookDB>(isbn);
                 }
                 catch (Exception e)
                 {

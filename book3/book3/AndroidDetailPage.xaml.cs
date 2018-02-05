@@ -54,10 +54,11 @@ namespace book3
                 DisplayAlert("表なし", "表なし", "OK");
             }
             title2.Text = title;
+            Auther2.Text = "著者名：" + author;
             Type2.Text = "タイプ：" + type;
-            SalesDate2.Text = "発売日:" + Date;
-            Publisher2.Text = "出版社:" + publisher;
-            ItemCaption2.Text = "説明:" + itemcaption;
+            SalesDate2.Text = "発売日：" + Date;
+            Publisher2.Text = "出版社：" + publisher;
+            ItemCaption2.Text = "説明：" + itemcaption;
 
             if (bluebook == 1)
             {
