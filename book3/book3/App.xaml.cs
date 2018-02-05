@@ -27,9 +27,13 @@ namespace book3
         {
             InitializeComponent();
 
+            MainPage = new book3.MainPage();
+
+            /*
             var nav = new NavigationPage(new MainPage());
 
             MainPage = nav;
+            */
         }
 
         protected override void OnStart()
