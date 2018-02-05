@@ -229,15 +229,15 @@ namespace book3
                     //return db.Query<BookDB>("SELECT * FROM [Book] order by [_id] desc limit 15");
                     if (sortkey == 1)
                     {
-                        return db.Query<BookDB>("SELECT * FROM [Book] order by " + terms);
+                        return db.Query<BookDB>("SELECT * FROM [BookDB] order by " + terms);
                     }
                     else if (sortkey == 2)
                     {
-                        return db.Query<BookDB>("SELECT * FROM [Book] order by " + terms + " desc");
+                        return db.Query<BookDB>("SELECT * FROM [BookDB] order by " + terms + " desc");
                     }
                     else
                     {
-                        return db.Query<BookDB>("SELECT * FROM [Book]");
+                        return db.Query<BookDB>("SELECT * FROM [BookDB]");
                     }
                 }
                 catch (Exception e)
@@ -258,7 +258,7 @@ namespace book3
                 {
                     //データベースに指定したSQLを発行します
                     //return db.Query<UserModel>("SELECT * FROM [Book] order by [_id] desc limit 15");
-                    return db.Query<BookDB>("SELECT * FROM [Book] WHERE Title LIKE '%" + keyword + "%'");
+                    return db.Query<BookDB>("SELECT * FROM [BookDB] WHERE Title LIKE '%" + keyword + "%'");
 
                 }
                 catch (Exception e)
