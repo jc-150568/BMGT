@@ -121,7 +121,7 @@
 
                         <!-- 未読・既読スイッチを表示 -->
                         <Switch x:Name="unread1" Toggled="OnToggled" Grid.Row="3" Grid.Column="4"/>
-                        <Label x:Name="unread2" Text="未読" FontSize="24" Grid.Row="4" Grid.Column="4" Margin="5,0,0,0"/>
+                        <Label x:Name="unread2" Text="未読" FontSize="24" Grid.Row="4" Grid.Column="4" Margin="3,0,0,0"/>
 
                     </Grid>
                 </OnPlatform.iOS>
