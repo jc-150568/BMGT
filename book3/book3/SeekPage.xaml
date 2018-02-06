@@ -54,7 +54,9 @@
                 </Picker.Items>
             </Picker>
 
-            
+            <Button Text="検索"
+                    Clicked="Serch"
+                    />
 
             <ListView x:Name="RankListView" RowHeight="100"
               IsPullToRefreshEnabled="True"

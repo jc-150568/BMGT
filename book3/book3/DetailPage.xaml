@@ -50,8 +50,11 @@
         <!-- レイアウトを垂直方向に表示 -->
         <StackLayout>
 
+            <StackLayout>
             <!-- 本のタイトルを表示 -->
             <Label Text= "title" Margin="30" FontSize="30" x:Name="title2"/>
+            <Button Text="削除する" Margin="30,15" FontSize="20" Clicked="OnDeleteButtonClicked"/>
+            </StackLayout>
 
             <!-- 横線を表示 -->
             <BoxView Color="Gray" WidthRequest="1000" HeightRequest="1" />
@@ -104,7 +107,7 @@
             <Label Text="発売日:" Margin="30,15" FontSize="20" x:Name="SalesDate2"/>
             <Label Text="出版社" Margin="30,15" FontSize="20" x:Name="Publisher2"/>
             <Label Text="説明" Margin="30,15" FontSize="20" x:Name="ItemCaption2"/>
-            <Button Text="削除する" Margin="30,15" FontSize="20" Clicked="OnDeleteButtonClicked"/>
+            
 
         </StackLayout>
 
