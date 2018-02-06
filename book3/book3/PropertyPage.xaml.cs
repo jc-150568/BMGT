@@ -34,7 +34,15 @@ namespace book3
             bool x = await DisplayAlert("警告", "本棚を全削除します。\n\rよろしいですか？", "OK", "CANCEL");
             if (x == true)
             {
-                BookDB.dropBook();
+                bool z = await DisplayAlert("警告", "本棚を全削除します。\n\r本当によろしいですか？", "OK", "CANCEL");
+                if(z == true)
+                {
+                    bool y = await DisplayAlert("警告", "本棚を全削除します。\n\r本当に本当によろしいですか？", "OK", "CANCEL");
+                    if(y == true)
+                    {
+                        BookDB.dropBook();
+                    }
+                }
             }
         }
 
