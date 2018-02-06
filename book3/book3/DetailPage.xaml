@@ -50,7 +50,7 @@
         <!-- レイアウトを垂直方向に表示 -->
         <StackLayout>
 
-            <StackLayout>
+            <StackLayout Orientation="Horizontal">
             <!-- 本のタイトルを表示 -->
             <Label Text= "title" Margin="30" FontSize="30" x:Name="title2"/>
             <Button Text="削除する" Margin="30,15" FontSize="20" Clicked="OnDeleteButtonClicked"/>
