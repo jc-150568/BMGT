@@ -39,7 +39,7 @@ namespace book3
             }
             else
             {
-                this.sw2.On = true;
+                this.sw2.On = true; 
                 Manage.camera();
             }
         }
