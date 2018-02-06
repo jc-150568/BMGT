@@ -104,19 +104,14 @@ namespace book3
         private void OnItemSelected(object sender, ItemTappedEventArgs e)
         {
 
-            string _device = Device.Idiom.ToString();
+
 
             Book book = (Book)BookListView.SelectedItem;
             string isbn = book.ISBN;
             
-            if (_device == "Phone")
-            {
-                Navigation.PushAsync(new AndroidDetailPage(isbn));
-            }
-            else
-            {
+
                 Navigation.PushAsync(new DetailPage(isbn));
-            }
+            
 
         }
 

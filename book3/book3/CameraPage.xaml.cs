@@ -20,12 +20,15 @@ namespace book3
         private string url;
         static string requestUrl;
         private int c_bool;
+        private string _device;
 
         public CameraPage()
         {
             InitializeComponent();
 
             url = "https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&applicationId=1051637750796067320&formatVersion=2"; //formatVersion=2にした
+
+            _device = Device.Idiom.ToString();
         }
         async void ScanButtonClicked(object sender, EventArgs s)
         {
@@ -35,7 +38,7 @@ namespace book3
                 DefaultOverlayBottomText = "",
             };
 
-            
+
 
             // スキャナページを表示
             await Navigation.PushAsync(scanPage);
@@ -48,26 +51,42 @@ namespace book3
                 // PopAsyncで元のページに戻り、結果を表示
                 Device.BeginInvokeOnMainThread(async () =>
                 {
-                    List<Manage> hoge2;
-                    hoge2 = Manage._camera();
-                    if (hoge2 == null)
+                    //phoneならこっち
+                    if (_device == "Phone")
                     {
-                        Manage.insertCamera();
+                        List<Manage> hoge2;
                         hoge2 = Manage._camera();
-                    }
-                    foreach (var x in hoge2)
-                    {
-                        c_bool = x.camera_bool;
-                    }
+                        if (hoge2 == null)
+                        {
+                            Manage.insertCamera();
+                            hoge2 = Manage._camera();
+                        }
+                        foreach (var x in hoge2)
+                        {
+                            c_bool = x.camera_bool;
+                        }
 
-                    if (c_bool == 0) 
-                    {
-                        DependencyService.Get<IDeviceService>().PlayVibrate();
-                        await Navigation.PopAsync();//元のページに戻る
+                        if (c_bool == 0)
+                        {
+                            DependencyService.Get<IDeviceService>().PlayVibrate();
+                            await Navigation.PopAsync();//元のページに戻る
+                        }
+                        if (c_bool == 1)
+                        {
+                            DependencyService.Get<IDeviceService>().PlayVibrate();
+                            scanPage.IsScanning = false;
+                        }
                     }
-                    if (c_bool == 1)
+                    //タブレットならこっち
+                    else
                     {
-                        DependencyService.Get<IDeviceService>().PlayVibrate();
+                        if (c_bool == 0)
+                        {
+                            await Navigation.PopAsync();//元のページに戻る
+                        }
+                        if (c_bool == 1)
+                        {
+                        }
                     }
 
                     string isbncode = result.Text;
@@ -133,6 +152,14 @@ namespace book3
                         if (x == true)
                         {
                             BookDB.insertBook(isbn, title, titleKana, subTitle, subTitleKana, author, authorKana, publisher, size, itemCaption, salesDate, price, gazo, genreId);
+                        }
+                        if (title == null)
+                        {
+                            await DisplayAlert("警告", "本が楽天ブックスに登録されていない可能性があります", "OK");
+                        }
+                        if (scanPage.IsScanning == false)
+                        {
+                            scanPage.IsScanning = true;
                         }
                     };
                 });
@@ -234,24 +261,24 @@ namespace book3
         }
 
 
-            //HTTPアクセスメソッド
-            public static async Task<string> GetApiAsync()
-            {
-                string APIurl = requestUrl;
+        //HTTPアクセスメソッド
+        public static async Task<string> GetApiAsync()
+        {
+            string APIurl = requestUrl;
 
-                using (HttpClient client = new HttpClient())
-                    try
-                    {
-                        string urlContents = await client.GetStringAsync(APIurl);
-                        await Task.Delay(1000); //1秒待つ(楽天API規約に違反するため)
-                        return urlContents;
-                    }
-                    catch (Exception e)
-                    {
-                        string a = e.ToString();
-                        return null;
-                    }
-            }
+            using (HttpClient client = new HttpClient())
+                try
+                {
+                    string urlContents = await client.GetStringAsync(APIurl);
+                    await Task.Delay(1000); //1秒待つ(楽天API規約に違反するため)
+                    return urlContents;
+                }
+                catch (Exception e)
+                {
+                    string a = e.ToString();
+                    return null;
+                }
         }
-    
+    }
+
 }

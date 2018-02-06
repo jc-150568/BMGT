@@ -4,27 +4,5 @@
              xmlns:local="clr-namespace:book3"
              x:Class="book3.MainPage">
 
-    <NavigationPage Title="本棚" Icon="bookmark_24.png">
-        <x:Arguments>
-            <local:BookPage />
-        </x:Arguments>
-    </NavigationPage>
 
-    <NavigationPage Title="カメラ" Icon="camera_24.png">
-        <x:Arguments>
-            <local:CameraPage />
-        </x:Arguments>
-    </NavigationPage>
-
-    <NavigationPage Title="さがす" Icon="star_32.png">
-        <x:Arguments>
-            <local:SeekPage />
-        </x:Arguments>
-    </NavigationPage>
-
-    <NavigationPage Title="設定" Icon="gear_24.png">
-        <x:Arguments>
-            <local:PropertyPage />
-        </x:Arguments>
-    </NavigationPage>
 </TabbedPage>

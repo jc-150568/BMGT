@@ -40,7 +40,7 @@
             <Label x:Name="unread2" Text="未読" AbsoluteLayout.LayoutBounds=".515,.35,32,32" AbsoluteLayout.LayoutFlags="PositionProportional"/>
 
             本の評価を表示 
-            <Image Source="value_5.png" AbsoluteLayout.LayoutBounds=".32,.25,120,120" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+            <Image Source="value_5_.png" AbsoluteLayout.LayoutBounds=".32,.25,120,120" AbsoluteLayout.LayoutFlags="PositionProportional"/>
 
             横線を表示 
             <BoxView Color="Black" AbsoluteLayout.LayoutBounds=".5,.5,1000,2" AbsoluteLayout.LayoutFlags="PositionProportional"/>

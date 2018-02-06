@@ -35,8 +35,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AndroidBookPage.xaml.cs">
+      <DependentUpon>AndroidBookPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AndroidDetailPage.xaml.cs">
       <DependentUpon>AndroidDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AndroidSeekPage.xaml.cs">
+      <DependentUpon>AndroidSeekPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -56,9 +62,6 @@
     </Compile>
     <Compile Include="DetailPage.xaml.cs">
       <DependentUpon>DetailPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DetailPage2.xaml.cs">
-      <DependentUpon>DetailPage2.xaml</DependentUpon>
     </Compile>
     <Compile Include="HelpPage.xaml.cs">
       <DependentUpon>HelpPage.xaml</DependentUpon>
@@ -182,7 +185,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DetailPage2.xaml">
+    <EmbeddedResource Include="AndroidBookPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AndroidSeekPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

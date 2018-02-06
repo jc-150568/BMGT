@@ -204,37 +204,37 @@
     <BundleResource Include="Resources\star_32.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\value_0.5.png" />
+    <BundleResource Include="Resources\value_0_5.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\value_0.png" />
+    <BundleResource Include="Resources\value_0_.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\value_1.5.png" />
+    <BundleResource Include="Resources\value_1_5.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\value_1.png" />
+    <BundleResource Include="Resources\value_1_.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\value_2.5.png" />
+    <BundleResource Include="Resources\value_2_5.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\value_2.png" />
+    <BundleResource Include="Resources\value_2_.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\value_3.5.png" />
+    <BundleResource Include="Resources\value_3_5.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\value_3.png" />
+    <BundleResource Include="Resources\value_3_.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\value_4.5.png" />
+    <BundleResource Include="Resources\value_4_5.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\value_4.png" />
+    <BundleResource Include="Resources\value_4_.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\value_5.png" />
+    <BundleResource Include="Resources\value_5_.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\UPCA_JPN.png" />
