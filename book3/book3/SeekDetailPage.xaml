@@ -43,7 +43,7 @@
                 <BoxView Color="Blue" WidthRequest="130" HeightRequest="180" Grid.Row="1" Grid.Column="1" Grid.RowSpan="5"/>
 
                 <!-- レビュー画像を表示 -->
-                <Button x:Name="image" Image="{Binding StarImage}" Clicked="OnImageClicked2" Grid.Row="2" Grid.Column="2" />
+                <Button x:Name="image" Image="{Binding StarImage}" Grid.Row="2" Grid.Column="2" />
             </Grid>
 
             <!-- 横線を表示 -->
