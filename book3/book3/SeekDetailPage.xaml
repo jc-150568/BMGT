@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="book3.SeekDetailPage">
+    <ContentPage.Content>
+
+        <!-- レイアウトを垂直方向に表示 -->
+        <StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <!-- 本のタイトルを表示 -->
+                <Label Text= "title" Margin="30" FontSize="30" x:Name="title2"/>
+            </StackLayout>
+
+            <!-- 横線を表示 -->
+            <BoxView Color="Gray" WidthRequest="1000" HeightRequest="1" />
+
+            <Grid>
+
+                <!-- 6行にして高さを設定 -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="90" />
+                    <RowDefinition Height="36" />
+                    <RowDefinition Height="36" />
+                    <RowDefinition Height="36" />
+                    <RowDefinition Height="36" />
+                    <RowDefinition Height="36" />
+                    <RowDefinition Height="90" />
+
+                </Grid.RowDefinitions>
+
+                <!-- 6列にして幅を設定 -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="72" />
+                    <ColumnDefinition Width="180" />
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="360" />
+                </Grid.ColumnDefinitions>
+
+                <!-- 本の画像を表示 -->
+                <BoxView Color="Blue" WidthRequest="130" HeightRequest="180" Grid.Row="1" Grid.Column="1" Grid.RowSpan="5"/>
+
+                <!-- レビュー画像を表示 -->
+                <Button x:Name="image" Image="{Binding StarImage}" Clicked="OnImageClicked2" Grid.Row="2" Grid.Column="2" />
+            </Grid>
+
+            <!-- 横線を表示 -->
+            <BoxView Color="Black" WidthRequest="1000" HeightRequest="1" />
+
+            <!-- 本のデータ -->
+            <Label Text="著者名：" Margin="30,15" FontSize="20" x:Name="Auther2" />
+            <Label Text="タイプ：" Margin="30,15" FontSize="20" x:Name="Type2"/>
+            <Label Text="発売日：" Margin="30,15" FontSize="20" x:Name="SalesDate2"/>
+            <Label Text="出版社：" Margin="30,15" FontSize="20" x:Name="Publisher2"/>
+            <Label Text="説明：" Margin="30,15" FontSize="20" x:Name="ItemCaption2"/>
+
+        </StackLayout>
+
+
+    </ContentPage.Content>
+</ContentPage>
