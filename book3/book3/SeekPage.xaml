@@ -59,8 +59,9 @@
                     />
 
             <ListView x:Name="RankListView" RowHeight="100"
-              IsPullToRefreshEnabled="True"
-              Refreshing="OnRefreshing">
+                        IsPullToRefreshEnabled="True"
+                        Refreshing="OnRefreshing"
+                        ItemTapped="OnItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
 

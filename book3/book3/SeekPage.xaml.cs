@@ -843,6 +843,21 @@ namespace book3
                     return null;
                 }
         }
+        private void OnItemSelected(object sender, ItemTappedEventArgs e)
+        {
+
+
+
+            Book2 book = (Book2)BookListView.SelectedItem;
+            string Name = book.Name;
+
+
+            Navigation.PushAsync(new SeekDetailPage(Name));
+
+
+        }
+
+
 
     }
 }
