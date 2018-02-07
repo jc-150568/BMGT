@@ -46,11 +46,11 @@
 	<string>LaunchScreen</string>
 	<key>NSCameraUsageDescription</key>
 	<string>カメラを利用してスキャンします。</string>
-	<key>MinimumOSVersion</key>
-	<string>10.0</string>
 	<key>XSAppIconAssets</key>
 	<string>Resources/Media.xcassets/AppIcons.appiconset</string>
 	<key>CFBundleDisplayName</key>
 	<string>BMGT</string>
+	<key>MinimumOSVersion</key>
+	<string>10.0</string>
 </dict>
 </plist>
