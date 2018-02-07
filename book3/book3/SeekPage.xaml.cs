@@ -805,7 +805,7 @@ namespace book3
                 }
                 else if (ListReview[j] <= 4.75)
                 {
-                    ListValue.Add("value_4_5_.png");
+                    ListValue.Add("value_4_5.png");
                 }
                 else
                 {
