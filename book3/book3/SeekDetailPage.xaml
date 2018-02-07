@@ -43,7 +43,7 @@
                 <Image x:Name="image" Source="{Binding URL}" Grid.Row="1" Grid.Column="1" Grid.RowSpan="5"/>
 
                 <!-- 評価を表示 -->
-                <Label Text="Review" x:Name="Review" Grid.Row="1" Grid.Column="3" />
+                <Label Text="Review" x:Name="Review" Grid.Row="1" Grid.Column="2" />
 
                 <!-- 評価画像を表示 -->
                 <Image x:Name="image2" Source="{Binding ValueImage}" Grid.Row="2" Grid.Column="2" />
