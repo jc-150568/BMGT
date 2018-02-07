@@ -13,9 +13,10 @@ namespace book3
     public partial class SeekDetailPage : ContentPage
     {
         string ValueImage;
+        string URL;
 
 
-        public SeekDetailPage(string Name,string author,string Date,string publisher, string itemcaption,double value,string valueimage)
+        public SeekDetailPage(string Name,string author,string Date,string publisher, string itemcaption,double value,string valueimage,string ImageUrl)
         {
             InitializeComponent();
         
@@ -26,6 +27,7 @@ namespace book3
             ItemCaption2.Text = "説明：" + itemcaption;
             Review.Text = value.ToString();
             ValueImage = valueimage;
+            URL = ImageUrl;
             
 
 

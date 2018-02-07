@@ -47,6 +47,8 @@ namespace book3
 
             public string SalesDate { get; set; }
 
+            public string ImageURL { get; set; }
+
         }
 
         // 親カテゴリのプルダウンに応じて子カテゴリの内容を変更する
@@ -758,6 +760,7 @@ namespace book3
             var ListItemCaption = new List<string>();
             var ListDate = new List<string>();
             var ListValue = new List<string>();
+            var ListImage = new List<string>();
 
             requestUrl = url + "&booksGenreId=001" + genreid;
 
@@ -825,6 +828,7 @@ namespace book3
                 ListItemCaption.Add(itemCaption);
                 ListPublisher.Add(publisher);
                 ListDate.Add(salesDate);
+                ListImage.Add(gazo);
 
             };
 
@@ -877,7 +881,10 @@ namespace book3
                     ListValue.Add("value_5_.png");
                 }
 
-                items.Add(new Book2 { Name = ListTitle[j], Value = ListReview[j], ValueImage = ListValue[j], Author = ListAuthor[j], Publisher = ListPublisher[j], SalesDate = ListDate[j], ItemCaption = ListItemCaption[j] });
+                items.Add(new Book2 { Name = ListTitle[j], Value = ListReview[j],
+                                      ValueImage = ListValue[j],Author = ListAuthor[j],
+                                      Publisher = ListPublisher[j], SalesDate = ListDate[j],
+                                      ItemCaption = ListItemCaption[j],ImageURL=ListImage[j] });
 
 
             }
@@ -922,9 +929,10 @@ namespace book3
             string publisher = book.Publisher;
             double Value = book.Value;
             string VI = book.ValueImage;
+            string IU = book.ImageURL;
 
 
-            Navigation.PushAsync(new SeekDetailPage(Name,author,sale,publisher,item,Value,VI));
+            Navigation.PushAsync(new SeekDetailPage(Name,author,sale,publisher,item,Value,VI,IU));
 
 
         }
