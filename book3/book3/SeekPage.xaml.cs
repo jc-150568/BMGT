@@ -920,7 +920,7 @@ namespace book3
             string item = book.ItemCaption;
             string sale = book.SalesDate;
             string publisher = book.Publisher;
-            string Value = book.Value;
+            double Value = book.Value;
             string VI = book.ValueImage;
 
 

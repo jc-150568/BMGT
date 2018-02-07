@@ -25,7 +25,7 @@ namespace book3
         int bluebook;
 
 
-        public SeekDetailPage(string Name,string author,string Date,string publisher, string itemcaption,string value,string valueimage)
+        public SeekDetailPage(string Name,string author,string Date,string publisher, string itemcaption,double value,string valueimage)
         {
             InitializeComponent();
         
