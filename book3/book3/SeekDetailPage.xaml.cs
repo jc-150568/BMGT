@@ -12,17 +12,7 @@ namespace book3
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SeekDetailPage : ContentPage
     {
-        string Isbn;
-        string title;
-        string Date;
-        string type;
-        string itemcaption;
-        string author;
-        string publisher;
-
-        int read;
-        int redstar;
-        int bluebook;
+        string ValueImage;
 
 
         public SeekDetailPage(string Name,string author,string Date,string publisher, string itemcaption,double value,string valueimage)
@@ -35,6 +25,7 @@ namespace book3
             Publisher2.Text = "出版社：" + publisher;
             ItemCaption2.Text = "説明：" + itemcaption;
             Review.Text = value.ToString();
+            ValueImage = valueimage;
             
 
 

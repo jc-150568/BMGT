@@ -43,7 +43,7 @@
                 <BoxView Color="Blue" WidthRequest="130" HeightRequest="180" Grid.Row="1" Grid.Column="1" Grid.RowSpan="5"/>
 
                 <!-- 評価を表示 -->
-                <Label Text="Review" x:Name="Review" Grid.Row="1" Grid.Column="2" />
+                <Label Text="Review" x:Name="Review" Grid.Row="1" Grid.Column="3" />
 
                 <!-- 評価画像を表示 -->
                 <Image x:Name="image2" Source="{Binding valueimage}" Grid.Row="2" Grid.Column="2" />
