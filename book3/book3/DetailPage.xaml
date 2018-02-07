@@ -102,12 +102,11 @@
             <BoxView Color="Black" WidthRequest="1000" HeightRequest="1" />
 
             <!-- 本のデータ -->
-            <Label Text="著者名：" Margin="10,5" FontSize="10" x:Name="Auther2" />
-            <Label Text="タイプ：" Margin="10,5" FontSize="10" x:Name="Type2"/>
-            <Label Text="発売日：" Margin= "10,5" FontSize="10" x:Name="SalesDate2"/>
-            <Label Text="出版社：" Margin="10,5" FontSize="10" x:Name="Publisher2"/>
-            <Label Text="説明：" Margin="10,5" FontSize="10" x:Name="ItemCaption2"/>
-            
+            <Label Text="著者名：" Margin="30,15" FontSize="20" x:Name="Auther2" />
+            <Label Text="タイプ：" Margin="30,15" FontSize="20" x:Name="Type2"/>
+            <Label Text="発売日：" Margin="30,15" FontSize="20" x:Name="SalesDate2"/>
+            <Label Text="出版社：" Margin="30,15" FontSize="20" x:Name="Publisher2"/>
+            <Label Text="説明：" Margin="30,15" FontSize="20" x:Name="ItemCaption2"/>
 
         </StackLayout>
 
