@@ -39,13 +39,13 @@ namespace book3
 
             public string ValueImage { get; set; }
 
-            public bool RedStar { get; set; }
+            public string ItemCaption { get; set; }
 
-            public string RedStar2 { get; set; }
+            public string Author { get; set; }
 
-            public bool BlueBook { get; set; }
+            public string Publisher { get; set; }
 
-            public string BlueBook2 { get; set; }
+            public string SalesDate { get; set; }
 
         }
 
@@ -848,7 +848,7 @@ namespace book3
 
 
 
-            Book2 book = (Book2)BookListView.SelectedItem;
+            Book2 book = (Book2)RankListView.SelectedItem;
             string Name = book.Name;
 
 
