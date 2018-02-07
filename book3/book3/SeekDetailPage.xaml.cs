@@ -34,7 +34,7 @@ namespace book3
             SalesDate2.Text = "発売日：" + Date;
             Publisher2.Text = "出版社：" + publisher;
             ItemCaption2.Text = "説明：" + itemcaption;
-            Review.Text = value;
+            Review.Text = value.ToString();
             
 
 
