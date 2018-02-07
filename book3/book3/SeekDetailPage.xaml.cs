@@ -25,7 +25,7 @@ namespace book3
         int bluebook;
 
 
-        public SeekDetailPage(string Name,string author,string Date,string publisher, string itemcaption)
+        public SeekDetailPage(string Name,string author,string Date,string publisher, string itemcaption,string value,string valueimage)
         {
             InitializeComponent();
         
@@ -34,6 +34,8 @@ namespace book3
             SalesDate2.Text = "発売日：" + Date;
             Publisher2.Text = "出版社：" + publisher;
             ItemCaption2.Text = "説明：" + itemcaption;
+            Review.Text = value;
+            
 
 
         }

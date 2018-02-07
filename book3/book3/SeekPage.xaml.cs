@@ -455,8 +455,13 @@ namespace book3
             var query = BookDB.select_all();
             var ListTitle = new List<String>();
             var ListReview = new List<double>();
+            var ListAuthor = new List<string>();
+            var ListPublisher = new List<string>();
+            var ListItemCaption = new List<string>();
+            var ListDate = new List<string>();
             var ListValue = new List<string>();
-            requestUrl = url + "&booksGenreId=001" + genreid; //URLにISBNコードを挿入
+
+            requestUrl = url + "&booksGenreId=001" + genreid;
 
             //HTTPアクセスメソッドを呼び出す
             string APIdata = await GetApiAsync(); //jsonをstringで受け取る
@@ -480,6 +485,11 @@ namespace book3
 
             //パースする *重要*   パースとは、文法に従って分析する、品詞を記述する、構文解析する、などの意味を持つ英単語。
             var json = JObject.Parse(APIdata); //stringのAPIdataをJObjectにパース
+
+            JValue countV = (JValue)json["hits"];
+            string count = countV.Value.ToString();
+            int getCount = int.Parse(count);
+
             var Items = JArray.Parse(json["Items"].ToString()); //Itemsは配列なのでJArrayにパース
 
             //結果を出力
@@ -499,13 +509,27 @@ namespace book3
                 JValue itemCaptionValue = (JValue)jobj["itemCaption"];
                 string itemCaption = (string)itemCaptionValue.Value;
 
+                JValue authorValue = (JValue)jobj["author"];
+                string author = (string)authorValue.Value;
+
+                JValue pubV = (JValue)jobj["publisherName"];
+                string publisher = (string)pubV.Value;
+
+                JValue salesDateV = (JValue)jobj["salesDate"];
+                string salesDate = (string)salesDateV.Value;
+
                 JValue gazoValue = (JValue)jobj["largeImageUrl"];
                 string gazo = (string)gazoValue.Value;
 
                 ListTitle.Add(title);
                 ListReview.Add(Review);
+                ListAuthor.Add(author);
+                ListItemCaption.Add(itemCaption);
+                ListPublisher.Add(publisher);
+                ListDate.Add(salesDate);
 
             };
+
 
             for (var j = 0; j < Items.Count; j++)
             {
@@ -555,7 +579,7 @@ namespace book3
                     ListValue.Add("value_5_.png");
                 }
 
-                items.Add(new Book2 { Name = ListTitle[j], Value = ListReview[j], ValueImage = ListValue[j] });
+                items.Add(new Book2 { Name = ListTitle[j], Value = ListReview[j], ValueImage = ListValue[j], Author = ListAuthor[j], Publisher = ListPublisher[j], SalesDate = ListDate[j], ItemCaption = ListItemCaption[j] });
 
             }
 
@@ -726,11 +750,16 @@ namespace book3
             //2秒処理を待つ
             await Task.Delay(2000);
             items.Clear();
+            var query = BookDB.select_all();
             var ListTitle = new List<String>();
             var ListReview = new List<double>();
+            var ListAuthor = new List<string>();
+            var ListPublisher = new List<string>();
+            var ListItemCaption = new List<string>();
+            var ListDate = new List<string>();
             var ListValue = new List<string>();
 
-            requestUrl = url + "&booksGenreId=001" + genreid; //URLにISBNコードを挿入
+            requestUrl = url + "&booksGenreId=001" + genreid;
 
             //HTTPアクセスメソッドを呼び出す
             string APIdata = await GetApiAsync(); //jsonをstringで受け取る
@@ -754,6 +783,11 @@ namespace book3
 
             //パースする *重要*   パースとは、文法に従って分析する、品詞を記述する、構文解析する、などの意味を持つ英単語。
             var json = JObject.Parse(APIdata); //stringのAPIdataをJObjectにパース
+
+            JValue countV = (JValue)json["hits"];
+            string count = countV.Value.ToString();
+            int getCount = int.Parse(count);
+
             var Items = JArray.Parse(json["Items"].ToString()); //Itemsは配列なのでJArrayにパース
 
             //結果を出力
@@ -773,13 +807,27 @@ namespace book3
                 JValue itemCaptionValue = (JValue)jobj["itemCaption"];
                 string itemCaption = (string)itemCaptionValue.Value;
 
+                JValue authorValue = (JValue)jobj["author"];
+                string author = (string)authorValue.Value;
+
+                JValue pubV = (JValue)jobj["publisherName"];
+                string publisher = (string)pubV.Value;
+
+                JValue salesDateV = (JValue)jobj["salesDate"];
+                string salesDate = (string)salesDateV.Value;
+
                 JValue gazoValue = (JValue)jobj["largeImageUrl"];
                 string gazo = (string)gazoValue.Value;
 
                 ListTitle.Add(title);
                 ListReview.Add(Review);
+                ListAuthor.Add(author);
+                ListItemCaption.Add(itemCaption);
+                ListPublisher.Add(publisher);
+                ListDate.Add(salesDate);
 
             };
+
 
             for (var j = 0; j < Items.Count; j++)
             {
@@ -829,7 +877,8 @@ namespace book3
                     ListValue.Add("value_5_.png");
                 }
 
-                items.Add(new Book2 { Name = ListTitle[j], Value = ListReview[j], ValueImage = ListValue[j] });
+                items.Add(new Book2 { Name = ListTitle[j], Value = ListReview[j], ValueImage = ListValue[j], Author = ListAuthor[j], Publisher = ListPublisher[j], SalesDate = ListDate[j], ItemCaption = ListItemCaption[j] });
+
 
             }
 
@@ -871,9 +920,11 @@ namespace book3
             string item = book.ItemCaption;
             string sale = book.SalesDate;
             string publisher = book.Publisher;
+            string Value = book.Value;
+            string VI = book.ValueImage;
 
 
-            Navigation.PushAsync(new SeekDetailPage(Name,author,sale,publisher,item));
+            Navigation.PushAsync(new SeekDetailPage(Name,author,sale,publisher,item,Value,VI));
 
 
         }
