@@ -583,6 +583,10 @@ namespace book3
             var query = BookDB.select_all();
             var ListTitle = new List<String>();
             var ListReview = new List<double>();
+            var ListAuthor = new List<string>();
+            var ListPublisher = new List<string>();
+            var ListItemCaption = new List<string>();
+            var ListDate = new List<string>();
             var ListValue = new List<string>();
 
             requestUrl = requestUrl + "&booksGenreId=001" + genreid;
@@ -633,11 +637,24 @@ namespace book3
                 JValue itemCaptionValue = (JValue)jobj["itemCaption"];
                 string itemCaption = (string)itemCaptionValue.Value;
 
+                JValue authorValue = (JValue)jobj["author"];
+                string author = (string)authorValue.Value;
+
+                JValue pubV = (JValue)jobj["publisherName"];
+                string publisher = (string)pubV.Value;
+
+                JValue salesDateV = (JValue)jobj["salesDate"];
+                string salesDate = (string)salesDateV.Value;
+
                 JValue gazoValue = (JValue)jobj["largeImageUrl"];
                 string gazo = (string)gazoValue.Value;
 
                 ListTitle.Add(title);
                 ListReview.Add(Review);
+                ListAuthor.Add(author);
+                ListItemCaption.Add(itemCaption);
+                ListPublisher.Add(publisher);
+                ListDate.Add(salesDate);
 
             };
 
@@ -690,7 +707,7 @@ namespace book3
                     ListValue.Add("value_5_.png");
                 }
 
-                items.Add(new Book2 { Name = ListTitle[j], Value = ListReview[j], ValueImage = ListValue[j] });
+                items.Add(new Book2 { Name = ListTitle[j], Value = ListReview[j], ValueImage = ListValue[j],Author=ListAuthor[j],Publisher=ListPublisher[j],SalesDate=ListDate[j],ItemCaption=ListItemCaption[j] });
 
             }
 
@@ -850,9 +867,13 @@ namespace book3
 
             Book2 book = (Book2)RankListView.SelectedItem;
             string Name = book.Name;
+            string author = book.Author;
+            string item = book.ItemCaption;
+            string sale = book.SalesDate;
+            string publisher = book.Publisher;
 
 
-            Navigation.PushAsync(new SeekDetailPage(Name));
+            Navigation.PushAsync(new SeekDetailPage(Name,author,sale,publisher,item));
 
 
         }

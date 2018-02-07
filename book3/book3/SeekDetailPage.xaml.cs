@@ -25,16 +25,15 @@ namespace book3
         int bluebook;
 
 
-        public SeekDetailPage(string Name)
+        public SeekDetailPage(string Name,string author,string Date,string publisher, string itemcaption)
         {
             InitializeComponent();
         
             title2.Text = Name;
-            /*Auther2.Text = "著者名：" + author;
-            Type2.Text = "タイプ：" + type;
+            Auther2.Text = "著者名：" + author;
             SalesDate2.Text = "発売日：" + Date;
             Publisher2.Text = "出版社：" + publisher;
-            ItemCaption2.Text = "説明：" + itemcaption;*/
+            ItemCaption2.Text = "説明：" + itemcaption;
 
 
         }
