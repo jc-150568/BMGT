@@ -40,13 +40,13 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- 本の画像を表示 -->
-                <BoxView Color="Blue" WidthRequest="130" HeightRequest="180" Grid.Row="1" Grid.Column="1" Grid.RowSpan="5"/>
+                <Image x:Name="image" Source="{Binding URL}" Grid.Row="1" Grid.Column="1" Grid.RowSpan="5"/>
 
                 <!-- 評価を表示 -->
                 <Label Text="Review" x:Name="Review" Grid.Row="1" Grid.Column="3" />
 
                 <!-- 評価画像を表示 -->
-                <Image x:Name="image2" Source="{Binding valueimage}" Grid.Row="2" Grid.Column="2" />
+                <Image x:Name="image2" Source="{Binding ValueImage}" Grid.Row="2" Grid.Column="2" />
             </Grid>
 
             <!-- 横線を表示 -->
