@@ -16,23 +16,20 @@ namespace book3
         string URL;
 
 
-        public SeekDetailPage(string Name,string author,string Date,string publisher, string itemcaption,double value,string valueimage,string ImageUrl)
+        public SeekDetailPage(string Name, string author, string Date, string publisher, string itemcaption, double value, string valueimage, string ImageUrl)
         {
             InitializeComponent();
 
             ValueImage = valueimage;
             URL = ImageUrl;
+            this.image.Source = URL;
+            this.image2.Source = ValueImage;
             title2.Text = Name;
             Auther2.Text = "著者名：" + author;
             SalesDate2.Text = "発売日：" + Date;
             Publisher2.Text = "出版社：" + publisher;
             ItemCaption2.Text = "説明：" + itemcaption;
             Review.Text = value.ToString();
-                        
-            this.image.Source = URL;
-            this.image2.Source = ValueImage;
-
-
 
         }
 
