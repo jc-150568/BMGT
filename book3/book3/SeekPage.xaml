@@ -116,11 +116,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            
-            <Button Text="更新"
-                    Clicked="Serch"
-                    />
-            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
