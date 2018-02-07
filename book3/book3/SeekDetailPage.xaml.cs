@@ -30,7 +30,7 @@ namespace book3
             Publisher2.Text = "出版社：" + publisher;
             ItemCaption2.Text = "説明：" + itemcaption;
             Review.Text = value.ToString();
-            URL2.Text = URL;
+           
 
         }
 
