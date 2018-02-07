@@ -53,7 +53,7 @@
             <StackLayout Orientation="Horizontal">
             <!-- 本のタイトルを表示 -->
             <Label Text= "title" Margin="30" FontSize="30" x:Name="title2"/>
-            <Button Text="削除する" FontSize="20" Clicked="OnDeleteButtonClicked" Margin="60,15,0,0"/>
+            <Button Text="削除する" FontSize="20" Clicked="OnDeleteButtonClicked" VerticalOptions="End" Margin="0,0,50,0"/>
             </StackLayout>
 
             <!-- 横線を表示 -->
